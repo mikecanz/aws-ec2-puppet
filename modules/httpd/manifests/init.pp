@@ -40,7 +40,7 @@ class httpd {
             recurse => true,
         }
 
-	file { "/etc/httpd/conf/httpd.conf":
+	    file { "/etc/httpd/conf/httpd.conf":
             source => "puppet:///modules/httpd/etc/httpd/conf/httpd.conf",
             owner  => "apache",
             group  => "apache",
