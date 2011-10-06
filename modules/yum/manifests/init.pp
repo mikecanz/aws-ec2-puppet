@@ -4,7 +4,6 @@ class yum {
                 ensure => latest,
         }
 
-
         file { "/etc/yum.repos.d/internal.repo":
                 owner => "root",
                 group => "root",

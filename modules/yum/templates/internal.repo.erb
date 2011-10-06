@@ -1,16 +1,16 @@
 # THIS FILE IS MAINTAINED BY PUPPET!
-#<%
-#if yumserver == "true"
-#    baseurl = "/yumvol"
-#else
-#    baseurl = "http://$yumserver_host"
-#end
-#%>
+<%
+yumserver = "false"
+if yumserver == "true"
+    baseurl = "/yumvol"
+else
+    baseurl = "http://10.127.106.209"
+end
+%>
 
 [internal-i686]
 name=Developers Repo
-#baseurl=<%= baseurl %>/centos/5.4/i686/
-baseurl=http://10.127.106.209/yumvol/yum/centos/5.4/i686/
+baseurl=<%= baseurl %>/yumvol/yum/centos/5.4/i686/
 enabled=1
 gpgcheck=0
 metadata_expire=1200
