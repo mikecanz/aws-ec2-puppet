@@ -1,17 +1,12 @@
 class httpd {
 
-        package { "httpd":
-            ensure => installed,
-        }
-
-        package { "mod_ssl":
+        package { ["httpd", "mod_ssl"]:
             ensure => installed,
         }
 
         service { "httpd":
             enable     => true,
             ensure     => running,
-            hasstatus  => true,
             hasrestart => true,
             subscribe  => Package["httpd", "mod_ssl"],
         }
