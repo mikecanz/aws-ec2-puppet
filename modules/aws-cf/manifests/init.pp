@@ -4,7 +4,7 @@ class aws-cf {
             ensure => latest,
         }
 
-        file { ["/opt/AWSCloudFormation"]:
+        file { ["/opt/aws/AWSCloudFormation"]:
             ensure => "directory",
         }
 
