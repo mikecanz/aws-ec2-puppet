@@ -1,4 +1,4 @@
-class AWSCloudFormation {
+class aws-cf {
 
         package { "AWSCloudFormation":
             ensure => latest,
