@@ -2,7 +2,16 @@ About
 =====
 This puppet repo is meant to be a fairly generic puppet config to work with
 modern Centos 5 and eventually 6 EC2 AMI's.  Currently this has been tested with
-ami-5624d63f.
+`ami-5624d63f`.  You can use a command like this to fire up an instance:
+
+    ec2-run-instances ami-5624d63f -k **accesskey** --instance-type t1.micro --group webserver --availability-zone us-east-1d --disable-api-termination
+
+nodes.pp and security groups
+============================
+EC2 instances come with a standard hostname scheme which means that we must come up with other
+ways if identifying various nodes.  This repo currently supports using the names of security groups 
+to meet this goal.  In the future there will be also be some custom scripts that turn instance tags into
+custom facts.
 
 AWS Tools
 =========
@@ -39,23 +48,33 @@ This repo will be used to hold keys, paths, and values that are specific to the 
             |   `-- opt
             |       `-- aws
             |           `-- ec2-certs
-            |               |-- accessiumgroup.pem
+            |               |-- accesskey.pem
             |               |-- cert-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.pem
             |               `-- pk-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.pem
             `-- manifests
                 `-- init.pp
 
-===File contents
+###File contents
+`manifests/nodes.pp`
 
-modules/ec2-api-tools-certs/manifests/init.pp
+    node default {
+        if $ec2_security_groups =~ /admin/ {
+            include ec2-api-tools-certs
+            include aws-cf-credentials
+        } else {
+            notify {"No private modules for security group: $ec2_security_groups":}
+        }
+    }
+
+`modules/ec2-api-tools-certs/manifests/init.pp`
+
     class ec2-api-tools-certs {
-
         file { ["/opt/aws/ec2-certs"]:
             ensure => "directory",
         }
 
-        file { "/opt/aws/ec2-certs/accessiumgroup.pem":
-            source => "puppet:///modules/ec2-api-tools-certs/opt/aws/ec2-certs/accessiumgroup.pem",
+        file { "/opt/aws/ec2-certs/accesskey.pem":
+            source => "puppet:///modules/ec2-api-tools-certs/opt/aws/ec2-certs/accesskey.pem",
             owner  => "root",
             group  => "root",
             mode   => 600,
@@ -81,4 +100,47 @@ modules/ec2-api-tools-certs/manifests/init.pp
             group  => "root",
             mode   => 644,
         }
-} 
+    }
+
+`modules/ec2-api-tools-certs/files/etc/ec2rc`
+
+    #################
+    # EC2 API TOOLS #
+    #################
+    export PATH=$PATH:/opt/aws/ec2-api-tools/bin
+    export PATH=$PATH:/opt/ec2-api-tools/bin
+    export EC2_HOME=/opt/ec2-api-tools
+    export EC2_CERT=/opt/ec2-certs/cert-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.pem
+    export EC2_PRIVATE_KEY=/opt/ec2-certs/pk-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.pem
+
+    #######################
+    # AWS Cloud Formation #
+    #######################
+    export PATH=$PATH:/opt/aws/AWSCloudFormation/bin
+    export AWS_CLOUDFORMATION_HOME=/opt/AWSCloudFormation
+    export AWS_CREDENTIAL_FILE=/opt/AWSCloudFormation/credential-file
+
+    ######################
+    # EC2 Metadata Tools #
+    ######################
+    export PATH=$PATH:/opt/aws/ec2-metadata/bin
+
+`modules/aws-cf-credentials/manifests/init.pp`
+
+    class aws-cf-credentials {
+        file { ["/opt/aws/AWSCloudFormation"]:
+            ensure => "directory",
+        }
+
+        file { "/opt/aws/AWSCloudFormation/credential-file":
+            source => "puppet:///modules/aws-cf-credentials/opt/aws/AWSCloudFormation/credential-file",
+            owner  => "root",
+            group  => "root",
+            mode   => 600,
+        }
+    }
+
+`modules/aws-cf-credentials/files/opt/aws/AWSCloudFormation/credential-file`
+
+    AWSAccessKeyId=XXXXXXXXXXXXXXXXXXXXX
+    AWSSecretKey=XXXXXXXXXXXXXXXXXXXXX
