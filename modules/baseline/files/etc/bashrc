@@ -66,4 +66,9 @@ if ! shopt -q login_shell ; then # We're not a login shell
 	unset i
 	unset pathmunge
 fi
+
+# EC2 global definitions
+if [ -f /etc/ec2rc ]; then
+        . /etc/ec2rc
+fi
 # vim:ts=4:sw=4
