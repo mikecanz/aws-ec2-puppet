@@ -4,7 +4,8 @@ This puppet repo is meant to be a fairly generic puppet config to work with
 modern Centos 5 and eventually 6 EC2 AMI's.  Currently this has been tested with
 ami-5624d63f.
 
-###AWS Tools
+AWS Tools
+=========
 This puppet repo will install some custom built
 RPMs that contain the EC2 API Tools, EC2 Metadata Tool, and AWS Cloudformation
 utilities provided by Amazon.  They were built using [fpm](http://www.semicomplete.com/blog/tags/deb)
@@ -14,7 +15,8 @@ and can be rebuilt with commands similar to these from within the respective **r
     fpm -s dir -t rpm  --prefix /opt/aws/AWSCloudFormation ./lib ./bin
     fpm -s dir -t rpm  --prefix /opt/aws/ec2-metadata ./bin
 
-###The private repo
+The private repo
+================
 To be utilized most effectively one can construct a private puppet repo structured like the one below.
 This repo will be used to hold keys, paths, and values that are specific to the AWS tools.
 
@@ -42,3 +44,41 @@ This repo will be used to hold keys, paths, and values that are specific to the 
             |               `-- pk-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.pem
             `-- manifests
                 `-- init.pp
+
+===File contents
+
+modules/ec2-api-tools-certs/manifests/init.pp
+    class ec2-api-tools-certs {
+
+        file { ["/opt/aws/ec2-certs"]:
+            ensure => "directory",
+        }
+
+        file { "/opt/aws/ec2-certs/accessiumgroup.pem":
+            source => "puppet:///modules/ec2-api-tools-certs/opt/aws/ec2-certs/accessiumgroup.pem",
+            owner  => "root",
+            group  => "root",
+            mode   => 600,
+        }
+
+        file { "/opt/aws/ec2-certs/cert-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.pem":
+            source => "puppet:///modules/ec2-api-tools-certs/opt/aws/ec2-certs/cert-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.pem",
+            owner  => "root",
+            group  => "root",
+            mode   => 644,
+        }
+
+        file { "/opt/aws/ec2-certs/pk-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.pem":
+            source => "puppet:///modules/ec2-api-tools-certs/opt/aws/ec2-certs/pk-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.pem",
+            owner  => "root",
+            group  => "root",
+            mode   => 644,
+        }
+
+        file { "/etc/ec2rc":
+            source => "puppet:///modules/ec2-api-tools-certs/etc/ec2rc",
+            owner  => "root",
+            group  => "root",
+            mode   => 644,
+        }
+} 
