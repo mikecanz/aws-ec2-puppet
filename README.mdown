@@ -108,17 +108,16 @@ This repo will be used to hold keys, paths, and values that are specific to the 
     # EC2 API TOOLS #
     #################
     export PATH=$PATH:/opt/aws/ec2-api-tools/bin
-    export PATH=$PATH:/opt/ec2-api-tools/bin
-    export EC2_HOME=/opt/ec2-api-tools
-    export EC2_CERT=/opt/ec2-certs/cert-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.pem
-    export EC2_PRIVATE_KEY=/opt/ec2-certs/pk-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.pem
+    export EC2_HOME=/opt/aws/ec2-api-tools
+    export EC2_CERT=/opt/aws/ec2-certs/cert-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.pem
+    export EC2_PRIVATE_KEY=/opt/aws/ec2-certs/pk-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.pem
 
     #######################
     # AWS Cloud Formation #
     #######################
     export PATH=$PATH:/opt/aws/AWSCloudFormation/bin
-    export AWS_CLOUDFORMATION_HOME=/opt/AWSCloudFormation
-    export AWS_CREDENTIAL_FILE=/opt/AWSCloudFormation/credential-file
+    export AWS_CLOUDFORMATION_HOME=/opt/aws/AWSCloudFormation
+    export AWS_CREDENTIAL_FILE=/opt/aws/AWSCloudFormation/credential-file
 
     ######################
     # EC2 Metadata Tools #
