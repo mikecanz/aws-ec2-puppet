@@ -8,7 +8,7 @@ class puppet {
 
         include baseline
 
-        package { "rubygem-puppet":
+        package { "puppet":
             ensure => latest,
         }
         
