@@ -4,7 +4,7 @@ class ec2-api-tools {
             ensure => latest,
         }
 
-        file { ["/opt/aws/ec2-api-tools"]:
+        file { ["/opt/aws", "/opt/aws/ec2-api-tools"]:
             ensure => "directory",
         }   
 }

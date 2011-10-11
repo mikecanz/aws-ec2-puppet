@@ -55,7 +55,7 @@ This repo will be used to hold keys, paths, and values that are specific to the 
                 `-- init.pp
 
 ###File contents
-`manifests/nodes.pp`
+`manifests/private-nodes.pp`
 
     node default {
         if $ec2_security_groups =~ /admin/ {

@@ -1,2 +1,2 @@
 # THIS FILE IS MAINTAINED BY PUPPET!
-30 * * * * root /usr/bin/puppet manifests/nodes.pp 2>&1 > /tmp/puppet.log
+30 * * * * root /usr/bin/puppet apply --modulepath /etc/puppet/modules /etc/puppet/manifests/nodes.pp 2>&1 > /tmp/puppet.log
