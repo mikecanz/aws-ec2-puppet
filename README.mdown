@@ -31,7 +31,7 @@ This repo will be used to hold keys, paths, and values that are specific to the 
 
     .
     |-- manifests
-    |   `-- nodes.pp
+    |   `-- private-nodes.pp
     `-- modules
         |-- aws-cf-credentials
         |   |-- files

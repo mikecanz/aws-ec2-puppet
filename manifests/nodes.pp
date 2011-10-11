@@ -1,7 +1,7 @@
 include baseline
 
 node default {
-    if $ec2_security_groups =~ /webserver/ {
+    if $ec2_security_groups =~ /(webserver|admin)/ {
         include puppet
         include httpd
         include yum
