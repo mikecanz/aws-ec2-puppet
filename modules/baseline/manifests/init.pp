@@ -1,5 +1,4 @@
 class baseline {  
-
     Service {
         hasstatus => true,
         hasrestart => true
@@ -12,9 +11,5 @@ class baseline {
 
     file { "/etc/bashrc":
         source => "puppet:///modules/baseline/etc/bashrc",
-    }
-
-    file { "/etc/motd":
-         source => "puppet:///modules/baseline/etc/motd",
     }
 }

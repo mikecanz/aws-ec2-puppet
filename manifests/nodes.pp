@@ -7,11 +7,9 @@ node default {
         include yum
     } elsif $ec2_security_groups =~ /admin/ {
         include puppet
+        include git
         include httpd
         include yum::master
-        include aws-cf
-        include ec2-api-tools
-        include ec2-metadata
     } else {
         notify {"No definition for security group: $ec2_security_groups":}
     }

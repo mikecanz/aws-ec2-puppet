@@ -2,9 +2,9 @@ About
 =====
 This puppet repo is meant to be a fairly generic puppet config to work with
 modern Centos 5 and eventually 6 EC2 AMI's.  Currently this has been tested with
-`ami-5624d63f`.  You can use a command like this to fire up an instance:
+`AMI: amzn-ami-2011.09.1.x86_64-ebs (ami-7341831a)`.  You can use a command like this to fire up an instance:
 
-    ec2-run-instances ami-5624d63f -k **accesskey** --instance-type t1.micro --group webserver --availability-zone us-east-1d --disable-api-termination
+    ec2-run-instances ami-7341831a -k **accesskeyname** --instance-type t1.micro --group webserver --availability-zone us-east-1d --disable-api-termination
 
 nodes.pp and security groups
 ============================
@@ -15,14 +15,8 @@ custom facts.
 
 AWS Tools
 =========
-This puppet repo will install some custom built
-RPMs that contain the EC2 API Tools, EC2 Metadata Tool, and AWS Cloudformation
-utilities provided by Amazon.  They were built using [fpm](http://www.semicomplete.com/blog/tags/deb)
-and can be rebuilt with commands similar to these from within the respective **renamed** directories:
-
-    fpm -s dir -t rpm  --prefix /opt/aws/ec2-api-tools ./lib ./bin
-    fpm -s dir -t rpm  --prefix /opt/aws/AWSCloudFormation ./lib ./bin
-    fpm -s dir -t rpm  --prefix /opt/aws/ec2-metadata ./bin
+AMI ami-7341831a comes with the Amazon AWS installed already so there is no need to install them although it is helpful to have
+some of the keys and environment variables set.  The next section covers the private repo which does just that.
 
 The private repo
 ================
@@ -37,8 +31,7 @@ This repo will be used to hold keys, paths, and values that are specific to the 
         |   |-- files
         |   |   `-- opt
         |   |       `-- aws
-        |   |           `-- AWSCloudFormation
-        |   |               `-- credential-file
+        |   |           `-- credential-file
         |   `-- manifests
         |       `-- init.pp
         `-- ec2-api-tools-certs
@@ -49,13 +42,12 @@ This repo will be used to hold keys, paths, and values that are specific to the 
             |       `-- aws
             |           `-- ec2-certs
             |               |-- accesskey.pem
-            |               |-- cert-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.pem
-            |               `-- pk-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.pem
+            |               |-- cert-XXXXXXXXXXXXXXXXXXXXXXXXXXXXX.pem
+            |               `-- pk-XXXXXXXXXXXXXXXXXXXXXXXXXXXXX.pem
             `-- manifests
                 `-- init.pp
 
-###File contents
-`manifests/private-nodes.pp`
+`./manifests/private-nodes.pp`
 
     node default {
         if $ec2_security_groups =~ /admin/ {
@@ -66,9 +58,10 @@ This repo will be used to hold keys, paths, and values that are specific to the 
         }
     }
 
-`modules/ec2-api-tools-certs/manifests/init.pp`
+`./modules/ec2-api-tools-certs/manifests/init.pp`
 
     class ec2-api-tools-certs {
+
         file { ["/opt/aws/ec2-certs"]:
             ensure => "directory",
         }
@@ -80,20 +73,20 @@ This repo will be used to hold keys, paths, and values that are specific to the 
             mode   => 600,
         }
 
-        file { "/opt/aws/ec2-certs/cert-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.pem":
-            source => "puppet:///modules/ec2-api-tools-certs/opt/aws/ec2-certs/cert-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.pem",
+        file { "/opt/aws/ec2-certs/cert-XXXXXXXXXXXXXXXXXXXXXXXXXXXXX.pem":
+            source => "puppet:///modules/ec2-api-tools-certs/opt/aws/ec2-certs/cert-XXXXXXXXXXXXXXXXXXXXXXXXXXXXX.pem",
             owner  => "root",
             group  => "root",
             mode   => 644,
         }
 
-        file { "/opt/aws/ec2-certs/pk-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.pem":
-            source => "puppet:///modules/ec2-api-tools-certs/opt/aws/ec2-certs/pk-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.pem",
+        file { "/opt/aws/ec2-certs/pk-XXXXXXXXXXXXXXXXXXXXXXXXXXXXX.pem":
+            source => "puppet:///modules/ec2-api-tools-certs/opt/aws/ec2-certs/pk-XXXXXXXXXXXXXXXXXXXXXXXXXXXXX.pem",
             owner  => "root",
             group  => "root",
             mode   => 644,
         }
-
+    
         file { "/etc/ec2rc":
             source => "puppet:///modules/ec2-api-tools-certs/etc/ec2rc",
             owner  => "root",
@@ -102,44 +95,31 @@ This repo will be used to hold keys, paths, and values that are specific to the 
         }
     }
 
-`modules/ec2-api-tools-certs/files/etc/ec2rc`
+`./modules/ec2-api-tools-certs/files/etc/ec2rc`
 
     #################
     # EC2 API TOOLS #
     #################
-    export PATH=$PATH:/opt/aws/ec2-api-tools/bin
-    export EC2_HOME=/opt/aws/ec2-api-tools
-    export EC2_CERT=/opt/aws/ec2-certs/cert-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.pem
-    export EC2_PRIVATE_KEY=/opt/aws/ec2-certs/pk-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.pem
+    export EC2_CERT=/opt/aws/ec2-certs/cert-XXXXXXXXXXXXXXXXXXXXXXXXXXXXX.pem
+    export EC2_PRIVATE_KEY=/opt/aws/ec2-certs/pk-XXXXXXXXXXXXXXXXXXXXXXXXXXXXX.pem
 
     #######################
     # AWS Cloud Formation #
     #######################
-    export PATH=$PATH:/opt/aws/AWSCloudFormation/bin
-    export AWS_CLOUDFORMATION_HOME=/opt/aws/AWSCloudFormation
-    export AWS_CREDENTIAL_FILE=/opt/aws/AWSCloudFormation/credential-file
+    export AWS_CREDENTIAL_FILE=/opt/aws/credential-file
 
-    ######################
-    # EC2 Metadata Tools #
-    ######################
-    export PATH=$PATH:/opt/aws/ec2-metadata/bin
-
-`modules/aws-cf-credentials/manifests/init.pp`
+`./modules/aws-cf-credentials/manifests/init.pp`
 
     class aws-cf-credentials {
-        file { ["/opt/aws/AWSCloudFormation"]:
-            ensure => "directory",
-        }
-
-        file { "/opt/aws/AWSCloudFormation/credential-file":
-            source => "puppet:///modules/aws-cf-credentials/opt/aws/AWSCloudFormation/credential-file",
-            owner  => "root",
-            group  => "root",
-            mode   => 600,
-        }
+	    file { "/opt/aws/credential-file":
+		    source => "puppet:///modules/aws-cf-credentials/opt/aws/credential-file",
+		    owner  => "root",
+		    group  => "root",
+		    mode   => 600,
+	    }
     }
 
-`modules/aws-cf-credentials/files/opt/aws/AWSCloudFormation/credential-file`
+`./modules/aws-cf-credentials/files/opt/aws/credential-file`
 
-    AWSAccessKeyId=XXXXXXXXXXXXXXXXXXXXX
-    AWSSecretKey=XXXXXXXXXXXXXXXXXXXXX
+    AWSAccessKeyId=XXXXXXXXXXXXXXXX
+    AWSSecretKey=XXXXXXXXXXXXXXXXXXXXXXXXXXXX
