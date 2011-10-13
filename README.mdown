@@ -1,22 +1,22 @@
 About
 =====
-This puppet repo is meant to be a fairly generic puppet config to work with
-modern Centos 5 and eventually 6 EC2 AMI's.  Currently this has been tested with
-`AMI: amzn-ami-2011.09.1.x86_64-ebs (ami-7341831a)`.  You can use a command like this to fire up an instance:
+This puppet repo is meant to work with the Amazon provided AMI.  Currently this has been tested with
+`amzn-ami-2011.09.1.x86_64-ebs (ami-7341831a)`.  You can use a command like this to fire up an instance:
 
-    ec2-run-instances ami-7341831a -k **accesskeyname** --instance-type t1.micro --group webserver --availability-zone us-east-1d --disable-api-termination
+    ec2-run-instances ami-7341831a -k **keypairname** --instance-type t1.micro --group webserver --availability-zone us-east-1d
 
 nodes.pp and security groups
 ============================
 EC2 instances come with a standard hostname scheme which means that we must come up with other
 ways if identifying various nodes.  This repo currently supports using the names of security groups 
-to meet this goal.  In the future there will be also be some custom scripts that turn instance tags into
-custom facts.
+to meet this goal.  This is why the command above has `webserver` as the group.  In the future there will be 
+also be some custom scripts that turn instance tags into custom facts.
 
 AWS Tools
 =========
-AMI ami-7341831a comes with the Amazon AWS installed already so there is no need to install them although it is helpful to have
-some of the keys and environment variables set.  The next section covers the private repo which does just that.
+AMI `ami-7341831a` comes with many of the Amazon AWS cli tools installed already so there is no need to install them although there are 
+one or two that we will install with this puppet config.  It is also helpful to have some of the keys and environment variables set.  
+The next section covers the private repo which does just that.
 
 The private repo
 ================
@@ -115,7 +115,7 @@ This repo will be used to hold keys, paths, and values that are specific to the 
 		    source => "puppet:///modules/aws-cf-credentials/opt/aws/credential-file",
 		    owner  => "root",
 		    group  => "root",
-		    mode   => 600,
+		    mode   => 644,
 	    }
     }
 
