@@ -4,6 +4,10 @@ class baseline {
         hasrestart => true
     }
 
+    package { ["perl-Time-HiRes"]:
+        ensure => installed,
+    }
+
     service { "crond":
         enable => true,
         ensure => running,
@@ -11,5 +15,8 @@ class baseline {
 
     file { "/etc/bashrc":
         source => "puppet:///modules/baseline/etc/bashrc",
+        owner  => "root",
+        group  => "root",
+        mode   => 664,
     }
 }

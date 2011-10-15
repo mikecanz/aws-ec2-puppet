@@ -5,6 +5,8 @@ node default {
         include puppet
         include httpd
         include yum
+        include php
+        include libssh2
     } elsif $ec2_security_groups =~ /admin/ {
         include aws
         include puppet
