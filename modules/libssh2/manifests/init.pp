@@ -1,5 +1,5 @@
 class libssh2 {
-    package { ["libssh2", "libssh2-devel"]:
+    package { ["libssh2"]:
         ensure => installed,
     }
 }

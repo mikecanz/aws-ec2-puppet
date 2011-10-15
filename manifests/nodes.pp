@@ -8,6 +8,7 @@ node default {
         include php
         include libssh2
     } elsif $ec2_security_groups =~ /admin/ {
+        include build
         include aws
         include puppet
         include git

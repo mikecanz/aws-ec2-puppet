@@ -1,6 +1,6 @@
 class php {
 
-    package { ["php", "php-devel", "php-pear"]:
+    package { ["php"]:
         ensure => installed,
     }
 }
