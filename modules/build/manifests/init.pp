@@ -1,6 +1,14 @@
 class build {
 
-    package { ["php", "php-devel", "php-pear", "ruby-devel", "gcc", "rpm-build"]:
+    package { [
+                "php", 
+                "php-devel", 
+                "php-pear", 
+                "ruby-devel", 
+                "gcc", 
+                "rpm-build",
+                "httpd-devel",
+              ]:
         ensure => installed,
     }
 

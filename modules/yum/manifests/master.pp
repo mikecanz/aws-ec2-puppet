@@ -5,6 +5,9 @@ class yum::master inherits yum {
 
     file { "/etc/httpd/vhosts.d/yum.conf":
         source => "puppet:///modules/yum/etc/httpd/vhosts.d/yum.conf",
+        owner => "root",
+        group => "root",
+        mode  => 664,
     }
 
 }
