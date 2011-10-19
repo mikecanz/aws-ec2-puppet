@@ -4,7 +4,7 @@ class baseline {
         hasrestart => true
     }
 
-    package { ["perl-Time-HiRes", "tree"]:
+    package { ["perl-Time-HiRes", "tree", "screen"]:
         ensure => installed,
     }
 
