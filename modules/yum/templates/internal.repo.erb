@@ -8,9 +8,16 @@ else
 end
 %>
 
-[internal-i686]
-name=Developers Repo
-baseurl=<%= baseurl %>/yumvol/yum/centos/5.4/i686/
+[internal-x86_64]
+name=Private Repo
+baseurl=<%= baseurl %>/yumvol/yum/centos/5.4/x86_64/
+enabled=1
+gpgcheck=0
+metadata_expire=1200
+
+[external-x86_64]
+name=Public Repo
+baseurl=http://loop.phpwebhosting.com/~mfc5/yumrepo/centos/5.4/x86_64/
 enabled=1
 gpgcheck=0
 metadata_expire=1200

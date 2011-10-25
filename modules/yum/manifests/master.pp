@@ -1,4 +1,3 @@
-
 class yum::master inherits yum {
 
     include httpd
@@ -10,4 +9,10 @@ class yum::master inherits yum {
         mode  => 664,
     }
 
+    #file { "/etc/yum.repos.d/epel.repo":
+    #    source => "puppet:///modules/yum/etc/yum.repos.d/epel.repo",
+    ##    owner => "root",
+    #    group => "root",
+    #    mode  => 644,
+    #}
 }
