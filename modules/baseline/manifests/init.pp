@@ -9,6 +9,7 @@ class baseline {
                 "tree",
                 "screen",
                 "puppet",
+                "fail2ban",
               ]:
         ensure => installed,
     }

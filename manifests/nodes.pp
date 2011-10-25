@@ -26,7 +26,6 @@ node default {
         include git
         include httpd
         include yum::master
-        include fail2ban
     } else {
         notify {"No definition for security group: $ec2_security_groups":}
     }
