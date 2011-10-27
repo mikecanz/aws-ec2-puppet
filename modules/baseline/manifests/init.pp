@@ -10,6 +10,7 @@ class baseline {
                 "screen",
                 "puppet",
                 "fail2ban",
+                "monit",
               ]:
         ensure => installed,
     }
