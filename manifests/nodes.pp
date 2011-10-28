@@ -22,8 +22,6 @@ node default {
         include mysql
     } elsif $ec2_security_groups =~ /admin/ {
         include build
-        include aws
-        include git
         include httpd
         include yum::master
     } else {

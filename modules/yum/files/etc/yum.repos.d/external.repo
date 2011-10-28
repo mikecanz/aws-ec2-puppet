@@ -1,3 +1,5 @@
+# THIS FILE IS MAINTAINED BY PUPPET!
+
 [external-noarch]
 name=Public External Repo
 baseurl=http://loop.phpwebhosting.com/~mfc5/yumrepo/amazonami/2011-09/noarch/
