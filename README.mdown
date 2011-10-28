@@ -1,9 +1,17 @@
 About
 =====
 This puppet repo is meant to work with the Amazon provided AMI.  Currently this has been tested with
-`amzn-ami-2011.09.1.x86_64-ebs (ami-7341831a)`.  You can use a command like this to fire up an instance:
+`amzn-ami-2011.09.1.x86_64-ebs (ami-7341831a)` and `Basic 32-bit Amazon Linux AMI 2011.09 (AMI Id: ami-7f418316)`.  
 
-    ec2-run-instances ami-7341831a -k **keypairname** --instance-type t1.micro --group webserver --availability-zone us-east-1d
+You can use a command like this to fire up an instance:
+
+Micro Instance
+
+    ec2-run-instances ami-7341831a -k <KEY_PAIR_NAME> -f ./userscript.sh -t t1.micro --group webserver -z us-east-1d
+
+Small Instance
+
+    ec2-run-instances ami-7f418316 -k <KEY_PAIR_NAME> -f ./userscript.sh -t m1.small --group webserver -z us-east-1d
 
 nodes.pp and security groups
 ============================
