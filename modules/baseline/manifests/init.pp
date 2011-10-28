@@ -4,13 +4,16 @@ class baseline {
         hasrestart => true
     }
 
+    include puppet
+    include monit
+
     package { [
                 "perl-Time-HiRes",
                 "tree",
                 "screen",
-                "puppet",
                 "fail2ban",
-                "monit",
+                "aws-apitools-cfn",
+                "git",
               ]:
         ensure => installed,
     }
