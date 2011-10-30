@@ -1,5 +1,7 @@
 class mysql {
 
+    include yum
+
     package { [
                 "mysql",
                 "mysql-server",
