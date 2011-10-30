@@ -1,4 +1,7 @@
 class yum {
+
+    Package { require => File["/etc/yum.repos.d/external.repo","/etc/yum.repos.d/epel.repo"], }
+
     package { "redhat-lsb":
         ensure => latest,
     }

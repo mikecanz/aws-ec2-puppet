@@ -1,5 +1,7 @@
 class httpd {
 
+        include yum
+
         package { ["httpd", "mod_ssl"]:
             ensure => installed,
         }

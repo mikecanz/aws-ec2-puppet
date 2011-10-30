@@ -11,14 +11,12 @@ include baseline
 node default { 
     if $ec2_security_groups =~ /^webserver$/ {
         include httpd
-        include yum
-        include php
-        include php-pecl-ssh2
+        include packages::php
+        include packages::php-pecl-ssh2
     } elsif $ec2_security_groups =~ /(^devserver$|^mysql-webserver$)/ {
         include httpd
-        include yum
-        include php
-        include php-pecl-ssh2
+        include packages::php
+        include packages::php-pecl-ssh2
         include mysql
     } elsif $ec2_security_groups =~ /^admin$/ {
         include build
