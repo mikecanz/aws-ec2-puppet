@@ -1,4 +1,5 @@
 class mysql {
+
     package { [
                 "mysql",
                 "mysql-server",
@@ -6,5 +7,11 @@ class mysql {
                 "php-mysql",
               ]:
         ensure => installed,
+    }
+
+    service { "mysqld":
+        enable     => true,
+        ensure     => running,
+        subscribe  => Package["mysql"],
     }
 }

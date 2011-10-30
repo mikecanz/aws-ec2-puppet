@@ -9,18 +9,18 @@ include baseline
 #                               to go through this machine.  Also hosts the private yum repo
 
 node default { 
-    if $ec2_security_groups =~ /webserver/ {
+    if $ec2_security_groups =~ /^webserver$/ {
         include httpd
         include yum
         include php
         include php-pecl-ssh2
-    } elsif $ec2_security_groups =~ /(devserver|mysql-webserver)/ {
+    } elsif $ec2_security_groups =~ /(^devserver$|^mysql-webserver$)/ {
         include httpd
         include yum
         include php
         include php-pecl-ssh2
         include mysql
-    } elsif $ec2_security_groups =~ /admin/ {
+    } elsif $ec2_security_groups =~ /^admin$/ {
         include build
         include httpd
         include yum::master
