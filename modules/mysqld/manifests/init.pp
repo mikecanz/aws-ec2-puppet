@@ -1,4 +1,4 @@
-class mysql {
+class mysqld {
 
     include yum
 

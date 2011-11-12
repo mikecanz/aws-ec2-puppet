@@ -17,7 +17,7 @@ node default {
         include httpd
         include packages::php
         include packages::php-pecl-ssh2
-        include mysql
+        include mysqld
     } elsif $ec2_security_groups =~ /^admin$/ {
         include build
         include httpd
