@@ -30,4 +30,11 @@ class yum {
         group => "root",
         mode  => 644,
     }
+
+    file { "/etc/yum.repos.d/10gen.repo":
+        source => "puppet:///modules/yum/etc/yum.repos.d/10gen.repo",
+        owner => "root",
+        group => "root",
+        mode  => 644,
+    }
 }
