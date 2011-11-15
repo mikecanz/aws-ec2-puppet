@@ -18,7 +18,7 @@ node default {
         include packages::php
         include packages::php-pecl-ssh2
         include mysqld
-    } elsif $ec2_security_groups =~ /(^mongo-devserver$|^mongo-webserver$)/ {
+    } elsif $ec2_security_groups =~ /(^mongodb-devserver$|^mongodb-webserver$)/ {
         include httpd
         include mongod
     } elsif $ec2_security_groups =~ /^admin$/ {
