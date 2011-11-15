@@ -3,7 +3,7 @@ class mongod {
     include yum
 
     package { [
-                "mongo-10gen"
+                "mongo-10gen",
                 "mongo-10gen-server",
                 "php-pecl-mongo",
               ]:
