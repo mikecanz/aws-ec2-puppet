@@ -13,11 +13,14 @@ node default {
         include httpd
         include packages::php
         include packages::php-pecl-ssh2
-    } elsif $ec2_security_groups =~ /(^devserver$|^mysql-webserver$)/ {
+    } elsif $ec2_security_groups =~ /(^mysql-devserver$|^mysql-webserver$)/ {
         include httpd
         include packages::php
         include packages::php-pecl-ssh2
         include mysqld
+    } elsif $ec2_security_groups =~ /(^mongo-devserver$|^mongo-webserver$)/ {
+        include httpd
+        include mongod
     } elsif $ec2_security_groups =~ /^admin$/ {
         include build
         include httpd
