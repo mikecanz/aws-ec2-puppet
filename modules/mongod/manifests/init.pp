@@ -6,6 +6,7 @@ class mongod {
                 "mongo-10gen",
                 "mongo-10gen-server",
                 "php-pecl-mongo",
+                "perl-MongoDB",
               ]:
         ensure => installed,
     }
