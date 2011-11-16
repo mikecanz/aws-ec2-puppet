@@ -12,3 +12,6 @@ EOF
 
 yum install -y puppet aws-ec2-puppet
 puppet apply --modulepath /etc/puppet/modules /etc/puppet/manifests/nodes.pp
+puppet apply --modulepath /etc/puppet/modules /etc/puppet/manifests/nodes.pp
+puppet apply --modulepath /etc/puppet/modules /etc/puppet/manifests/nodes.pp
+puppet apply --modulepath /etc/puppet/modules /etc/puppet/manifests/nodes.pp
