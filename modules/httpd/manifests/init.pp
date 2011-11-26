@@ -43,4 +43,11 @@ class httpd {
             group  => "apache",
             mode   => 644,
         }
+
+        file { "/etc/httpd/conf.d/ssl.conf":
+            source => "puppet:///modules/httpd/etc/httpd/conf.d/ssl.conf",
+            owner  => "apache",
+            group  => "apache",
+            mode   => 644,
+        }
 }
