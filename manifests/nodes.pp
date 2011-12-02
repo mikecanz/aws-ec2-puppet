@@ -21,6 +21,12 @@ node default {
     } elsif $ec2_security_groups =~ /(^mongodb-devserver$|^mongodb-webserver$)/ {
         include httpd
         include mongod
+        include packages::perl-dancer
+        include packages::perl-mongoose
+        include packages::perl-yaml
+        include packages::perl-tt
+        include packages::perl-net-oauth2
+        include packages::perl-class-accessor
     } elsif $ec2_security_groups =~ /^admin$/ {
         include build
         include httpd
