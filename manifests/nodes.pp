@@ -28,6 +28,7 @@ node default {
         include packages::perl-net-oauth2
         include packages::perl-class-accessor
         include packages::perl-www-salesforce
+        include packages::perl-data-structure-util
     } elsif $ec2_security_groups =~ /^admin$/ {
         include build
         include httpd
