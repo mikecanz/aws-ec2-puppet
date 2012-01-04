@@ -28,7 +28,7 @@ The next section covers the private repo which does just that.
 
 The private repo
 ================
-To be utilized most effectively one can construct a private puppet repo structured like the one below.
+To be utilized most effectively one might construct a private puppet repo structured like the one below.
 This repo will be used to hold keys, paths, and values that are specific to the AWS tools.
 
     .
