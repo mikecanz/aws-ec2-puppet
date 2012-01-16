@@ -2,6 +2,13 @@ class httpd {
 
         include yum
 
+        File { 
+            owner   => "apache", 
+            group   => "apache", 
+            mode    => 644,
+            require => Package["httpd"], # httpd package creates the apache user
+        }
+
         package { ["httpd", "mod_ssl"]:
             ensure => installed,
         }
@@ -19,9 +26,6 @@ class httpd {
 
         file { [ "/var/cache/apache", "/var/cache/apache/wsdl_cache", "/var/tmp/php" ]:
             ensure  => "directory",
-            owner   => "apache",
-            group   => "apache",
-            require => Package["httpd"], # httpd package creates apache user
         }
 
         file { "/var/log/httpd":
@@ -37,17 +41,11 @@ class httpd {
             recurse => true,
         }
 
-	    file { "/etc/httpd/conf/httpd.conf":
+        file { "/etc/httpd/conf/httpd.conf":
             source => "puppet:///modules/httpd/etc/httpd/conf/httpd.conf",
-            owner  => "apache",
-            group  => "apache",
-            mode   => 644,
         }
 
         file { "/etc/httpd/conf.d/ssl.conf":
             source => "puppet:///modules/httpd/etc/httpd/conf.d/ssl.conf",
-            owner  => "apache",
-            group  => "apache",
-            mode   => 644,
         }
 }
