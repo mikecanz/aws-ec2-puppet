@@ -1,5 +1,5 @@
 class monit {
-    package { ["monit"]:
+    package { "monit":
         ensure => installed,
     }
 }
