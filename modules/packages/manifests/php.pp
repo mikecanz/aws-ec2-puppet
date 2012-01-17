@@ -1,6 +1,9 @@
 class packages::php inherits packages {
 
-    package { "php":
+    package { [
+                "php",
+                "php-pecl-ssh2",
+              ]:
         ensure => installed,
     }
 }

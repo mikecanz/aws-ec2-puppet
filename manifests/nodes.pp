@@ -12,27 +12,20 @@ node default {
     if $ec2_security_groups =~ /^webserver$/ {
         include httpd
         include packages::php
-        include packages::php-pecl-ssh2
+        include packages::perl
     } elsif $ec2_security_groups =~ /(^mysql-devserver$|^mysql-webserver$)/ {
         include httpd
         include packages::php
-        include packages::php-pecl-ssh2
+        include packages::perl
         include mysqld
     } elsif $ec2_security_groups =~ /(^mongodb-devserver$|^mongodb-webserver$)/ {
         include httpd
         include mongod
-        include packages::perl-dancer
-        include packages::perl-mongoose
-        include packages::perl-yaml
-        include packages::perl-tt
-        include packages::perl-net-oauth2
-        include packages::perl-class-accessor
-        include packages::perl-www-salesforce
-        include packages::perl-data-structure-util
-        include packages::perl-io-socket-ssl
+        include packages::perl
     } elsif $ec2_security_groups =~ /^admin$/ {
         include build
         include httpd
+        include packages::perl
         include yum::master
     } else {
         notify {"No definition for security group: $ec2_security_groups":}
