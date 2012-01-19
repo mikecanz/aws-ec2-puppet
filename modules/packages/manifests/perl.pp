@@ -12,6 +12,7 @@ class packages::perl inherits packages {
                 "perl-WWW-Salesforce",
                 "perl-YAML",
                 "perl-Gearman",
+                "perl-Plack-Middleware-ReverseProxy",
               ]:
         ensure => installed,
     }
