@@ -13,6 +13,7 @@ class packages::perl inherits packages {
                 "perl-YAML",
                 "perl-Gearman",
                 "perl-Plack-Middleware-ReverseProxy",
+                "perltidy",
               ]:
         ensure => installed,
     }
