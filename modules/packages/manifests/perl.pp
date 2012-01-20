@@ -4,6 +4,7 @@ class packages::perl inherits packages {
                 "perl-Class-Accessor",
                 "perl-Dancer",
                 "perl-Dancer-Plugin-REST",
+                "perl-Dancer-Plugin-Passphrase",
                 "perl-Data-Structure-Util",
                 "perl-IO-Socket-SSL",
                 "perl-Mongoose",
