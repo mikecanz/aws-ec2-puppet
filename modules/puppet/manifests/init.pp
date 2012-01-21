@@ -1,5 +1,7 @@
 class puppet {
 
+        $minute = fqdn_rand(60)
+
         File { 
             owner => "root",
             group => "root",
@@ -17,7 +19,7 @@ class puppet {
         }
 
         file { "/etc/cron.d/puppet":
-                source => "puppet:///modules/puppet/etc/cron.d/puppet.cron",
+                content => template("puppet/etc/cron.d/puppet.cron.erb"),
                 notify => Service["crond"],
         }
 
