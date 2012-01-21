@@ -7,6 +7,7 @@ define baseline::add_user ( $uid ) {
             home     => "/home/$name",
             shell    => "/bin/bash",
             uid      => $uid,
+            gid      => $uid,
             password => template("passwords/$name"),
     }
 
