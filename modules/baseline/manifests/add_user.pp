@@ -16,7 +16,7 @@ define baseline::add_user ( $uid ) {
 
     file { "/home/$name/":
             ensure  => directory,
-            require => [ user[$name], group[$name] ],
+            require => [ User[$name], Group[$name] ],
     }
 
     file { "/home/$name/.ssh":
