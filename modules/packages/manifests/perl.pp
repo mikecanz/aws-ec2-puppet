@@ -2,6 +2,7 @@ class packages::perl inherits packages {
 
     package { [
                 "perl-Class-Accessor",
+                "perl-Crypt-Rijndael",
                 "perl-Dancer",
                 "perl-Dancer-Plugin-REST",
                 "perl-Dancer-Plugin-Passphrase",
