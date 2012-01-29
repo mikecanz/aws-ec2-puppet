@@ -48,4 +48,8 @@ class httpd {
         file { "/etc/httpd/conf.d/ssl.conf":
             source => "puppet:///modules/httpd/etc/httpd/conf.d/ssl.conf",
         }
+
+        file { "/etc/logrotate.d/httpd":
+            source => "puppet:///modules/httpd/etc/logrotate.d/httpd",
+        }
 }
