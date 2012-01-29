@@ -4,6 +4,12 @@ class baseline {
         hasrestart => true
     }
 
+    File {
+        owner => "root",
+        group => "root",
+        mode  => 644,
+    }
+
     include puppet
     include monit
 
@@ -25,8 +31,14 @@ class baseline {
 
     file { "/etc/bashrc":
         source => "puppet:///modules/baseline/etc/bashrc",
-        owner  => "root",
-        group  => "root",
-        mode   => 664,
     }
+
+    file { "/etc/logrotate.conf":
+        source => "puppet:///modules/baseline/etc/logrotate.conf",
+    }
+
+    file { "/var/log/rotated":
+        ensure => directory,
+    }
+
 }
