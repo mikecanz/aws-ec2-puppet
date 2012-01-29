@@ -5,6 +5,7 @@ name=Public External Repo
 baseurl=http://loop.phpwebhosting.com/~mfc5/yumrepo/amazonami/2011-09/noarch/
 enabled=1
 gpgcheck=0
+priority=1
 metadata_expire=1200
 
 [external-x86_64]
@@ -12,4 +13,5 @@ name=Public External Repo
 baseurl=http://loop.phpwebhosting.com/~mfc5/yumrepo/amazonami/2011-09/x86_64/
 enabled=1
 gpgcheck=0
+priority=1
 metadata_expire=1200
