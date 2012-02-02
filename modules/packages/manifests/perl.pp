@@ -16,6 +16,7 @@ class packages::perl inherits packages {
                 "perl-Gearman",
                 "perl-Plack-Middleware-ReverseProxy",
                 "perl-Validate-Tiny",
+                "perl-Net-Amazon-EC2",
                 "perltidy",
               ]:
         ensure => installed,
