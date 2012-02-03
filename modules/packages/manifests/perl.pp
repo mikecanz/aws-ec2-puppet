@@ -18,6 +18,7 @@ class packages::perl inherits packages {
                 "perl-Validate-Tiny",
                 "perl-Net-Amazon-EC2",
                 "perl-Config-INI",
+                "perl-Array-Diff",
                 "perltidy",
               ]:
         ensure => installed,
