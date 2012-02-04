@@ -24,7 +24,6 @@ node default {
         include packages::perl
     } elsif $ec2_security_groups =~ /^admin$/ {
         include build
-        include httpd
         include packages::perl
         include yum::master
     } else {
