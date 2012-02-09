@@ -12,6 +12,7 @@ class baseline {
 
     include puppet
     include monit
+    include packages::perl
 
     package { [
                 "perl-Time-HiRes",

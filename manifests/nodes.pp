@@ -12,20 +12,22 @@ node default {
     if $ec2_security_groups =~ /^webserver$/ {
         include httpd
         include packages::php
-        include packages::perl
     } elsif $ec2_security_groups =~ /(^mysql-devserver$|^mysql-webserver$)/ {
         include httpd
         include packages::php
-        include packages::perl
         include mysqld
     } elsif $ec2_security_groups =~ /(^mongodb-devserver$|^mongodb-webserver$)/ {
         include httpd
         include mongod
-        include packages::perl
+    } elsif $ec2_security_groups =~ /^gearman-worker$/ {
+        include gearman
+    } elsif $ec2_security_groups =~ /^gearman-master$/ {
+        include gearman::master
+    } elsif $ec2_security_groups =~ /^yum-master$/ {
+        include httpd
+        include yum::master
     } elsif $ec2_security_groups =~ /^admin$/ {
         include build
-        include packages::perl
-        include yum::master
     } else {
         notify {"No definition for security group: $ec2_security_groups":}
     }
