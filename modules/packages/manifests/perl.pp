@@ -19,6 +19,7 @@ class packages::perl inherits packages {
                 "perl-Net-Amazon-EC2",
                 "perl-Config-INI",
                 "perl-Array-Diff",
+                "perl-Module-Starter",
                 "perltidy",
               ]:
         ensure => installed,
