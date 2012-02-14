@@ -12,23 +12,33 @@ node default {
     if $ec2_security_groups =~ /^webserver$/ {
         include httpd
         include packages::php
-    } elsif $ec2_security_groups =~ /(^mysql-devserver$|^mysql-webserver$)/ {
+    }
+
+    if $ec2_security_groups =~ /(^mysql-devserver$|^mysql-webserver$)/ {
         include httpd
         include packages::php
         include mysqld
-    } elsif $ec2_security_groups =~ /(^mongodb-devserver$|^mongodb-webserver$)/ {
+    }
+
+    if $ec2_security_groups =~ /(^mongodb-devserver$|^mongodb-webserver$)/ {
         include httpd
         include mongod
-    } elsif $ec2_security_groups =~ /^gearman-worker$/ {
+    }
+
+    if $ec2_security_groups =~ /^gearman-worker$/ {
         include gearman
-    } elsif $ec2_security_groups =~ /^gearman-master$/ {
+    }
+
+    if $ec2_security_groups =~ /^gearman-master$/ {
         include gearman::master
-    } elsif $ec2_security_groups =~ /^yum-master$/ {
+    }
+
+    if $ec2_security_groups =~ /^yum-master$/ {
         include httpd
         include yum::master
-    } elsif $ec2_security_groups =~ /^admin$/ {
-        include build
-    } else {
-        notify {"No definition for security group: $ec2_security_groups":}
     }
+
+    if $ec2_security_groups =~ /^admin$/ {
+        include build
+    } 
 }
