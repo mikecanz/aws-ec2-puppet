@@ -20,7 +20,7 @@ node default {
         include mysqld
     }
 
-    if $ec2_security_groups =~ /(^mongodb-devserver$|^mongodb-webserver$)/ {
+    if $ec2_security_groups =~ /(^mongodb-devserver$|mongodb-webserver)/ {
         include httpd
         include mongod
     }
@@ -29,7 +29,7 @@ node default {
         include gearman
     }
 
-    if $ec2_security_groups =~ /^gearman-master$/ {
+    if $ec2_security_groups =~ /gearman-master/ {
         include gearman::master
     }
 
