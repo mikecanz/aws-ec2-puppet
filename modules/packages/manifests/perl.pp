@@ -20,6 +20,7 @@ class packages::perl inherits packages {
                 "perl-Array-Diff",
                 "perl-Module-Starter",
                 "perl-DateTime-Format-Strptime",
+                "perl-Date-Manip",
                 "perltidy",
               ]:
         ensure => installed,
