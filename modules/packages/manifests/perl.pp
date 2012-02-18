@@ -21,6 +21,7 @@ class packages::perl inherits packages {
                 "perl-Module-Starter",
                 "perl-DateTime-Format-Strptime",
                 "perl-Date-Manip",
+                "perl-Time-HiRes",
                 "perltidy",
               ]:
         ensure => installed,

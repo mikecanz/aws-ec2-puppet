@@ -15,11 +15,11 @@ class baseline {
     include packages::perl
 
     package { [
-                "perl-Time-HiRes",
                 "tree",
                 "screen",
                 "fail2ban",
                 "aws-apitools-cfn",
+                "telnet",
                 "git",
               ]:
         ensure => installed,
