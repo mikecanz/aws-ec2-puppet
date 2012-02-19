@@ -22,6 +22,7 @@ class packages::perl inherits packages {
                 "perl-DateTime-Format-Strptime",
                 "perl-Date-Manip",
                 "perl-Time-HiRes",
+                "perl-MooseX-NonMoose",
                 "perltidy",
               ]:
         ensure => installed,
