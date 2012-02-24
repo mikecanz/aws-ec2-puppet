@@ -27,7 +27,7 @@ node default {
         include packages::php
     }
 
-    if $ec2_security_groups =~ /gearman-worker-nodejs/
+    if $ec2_security_groups =~ /gearman-worker-nodejs/ {
         include gearman
         include nodejs
     }
