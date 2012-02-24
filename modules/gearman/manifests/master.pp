@@ -14,10 +14,14 @@ class gearman::master inherits gearman {
         ensure => installed,
     }
 
+    package { "gearmand-server":
+        ensure => installed,
+    }
+
     service { "gearmand":
         enable     => true,
         ensure     => running,
         hasrestart => true,
-        subscribe  => Package["gearmand"],
+        subscribe  => Package["gearmand-server"],
     }
 }

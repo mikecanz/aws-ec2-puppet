@@ -1,34 +1,55 @@
 include baseline
 
-# webserver                     Basic webserver that might use some other data store or may just not need one
-#
-# devserver|mysql-webserver     Servers that include mysql.  We have two types because webserver will just 
-#                               have ports 80 and 443 open while the devserver will also have port 22.
-#
-# admin                         Admin and build machine.  If one wants to ssh into a webserver they need
-#                               to go through this machine.  Also hosts the private yum repo
-
-node default { 
-    if $ec2_security_groups =~ /^webserver$/ {
-        include httpd
-        include packages::php
-    } elsif $ec2_security_groups =~ /(^mysql-devserver$|^mysql-webserver$)/ {
+node default {
+    #########################################################################
+    # This is old and should go away once all servers of this type are gone #
+    #########################################################################
+    if $ec2_security_groups =~ /(mysql-webserver)/ {
         include httpd
         include packages::php
         include mysqld
-    } elsif $ec2_security_groups =~ /(^mongodb-devserver$|^mongodb-webserver$)/ {
+    }
+
+    ##################################
+    # This is old and should go away #
+    ##################################
+    if $ec2_security_groups =~ /(mongodb-devserver)/ {
         include httpd
         include mongod
-    } elsif $ec2_security_groups =~ /^gearman-worker$/ {
+    }
+
+    if $ec2_security_groups =~ /webserver-nginx/ {
+        include nginx
+    }
+
+    if $ec2_security_groups =~ /webserver-httpd/ {
+        include httpd
+        include packages::php
+    }
+
+    if $ec2_security_groups =~ /gearman-worker-nodejs/
         include gearman
-    } elsif $ec2_security_groups =~ /^gearman-master$/ {
+        include nodejs
+    }
+
+    if $ec2_security_groups =~ /gearman-master/ {
         include gearman::master
-    } elsif $ec2_security_groups =~ /^yum-master$/ {
+    }
+
+    if $ec2_security_groups =~ /db-mysql/ {
+        include mysqld
+    }
+
+    if $ec2_security_groups =~ /db-mongo/ {
+        include mongod
+    }
+
+    if $ec2_security_groups =~ /yum-master/ {
         include httpd
         include yum::master
-    } elsif $ec2_security_groups =~ /^admin$/ {
-        include build
-    } else {
-        notify {"No definition for security group: $ec2_security_groups":}
     }
+
+    if $ec2_security_groups =~ /admin/ {
+        include build
+    } 
 }
