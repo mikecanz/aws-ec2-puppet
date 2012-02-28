@@ -8,4 +8,5 @@ fpm -s dir -t rpm -v $RPM_VERSION -a noarch --prefix /etc/puppet modules/ manife
 mv *.rpm /yumvol/yum/amazonami/2011-09/noarch
 sudo createrepo /yumvol/yum/amazonami/2011-09/noarch
 sudo createrepo /yumvol/yum/amazonami/2011-09/x86_64
+sudo createrepo /yumvol/yum/amazonami/2011-09/i386
 rsync -avz --delete /yumvol/yum/ $YUM_HOST:$YUM_PATH
