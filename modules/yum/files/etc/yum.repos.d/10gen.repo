@@ -1,4 +1,9 @@
 [10gen]
-name=10gen Repository
+name=10gen Repository (64 bit)
 baseurl=http://downloads-distro.mongodb.org/repo/redhat/os/$hardwaremodel
+gpgcheck=0
+
+[10gen]
+name=10gen Repository (32 bit)
+baseurl=http://downloads-distro.mongodb.org/repo/redhat/os/i686
 gpgcheck=0
