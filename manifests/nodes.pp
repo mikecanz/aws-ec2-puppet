@@ -49,6 +49,10 @@ node default {
         include yum::master
     }
 
+    if $ec2_security_groups =~ /build-master/ {
+        include jenkins
+    }
+
     if $ec2_security_groups =~ /admin/ {
         include build
     } 
