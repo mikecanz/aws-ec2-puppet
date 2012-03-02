@@ -2,14 +2,14 @@ class yum {
 
     Package { require => File["/etc/yum.repos.d/external.repo","/etc/yum.repos.d/epel.repo"], }
 
-    package { "redhat-lsb":
+    package { [
+                "redhat-lsb",
+                "yum-plugin-downloadonly",
+                "createrepo",
+              ]:
         ensure => latest,
     }
 
-    package { "yum-plugin-downloadonly":
-        ensure => latest,
-    }
-  
     #file { "/etc/yum.repos.d/internal.repo":
     #    owner => "root",
     #    group => "root",

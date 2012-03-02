@@ -45,7 +45,6 @@ node default {
     }
 
     if $ec2_security_groups =~ /yum-master/ {
-        include httpd
         include yum::master
     }
 
