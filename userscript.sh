@@ -1,7 +1,7 @@
 
 #!/bin/bash
 
-cat > /etc/yum.repos.d/internal.repo << EOF
+cat > /etc/yum.repos.d/external.repo << EOF
 [external-noarch]
 name=Public External Repo
 baseurl=http://loop.phpwebhosting.com/~mfc5/yumrepo/amazonami/2011-09/noarch/
