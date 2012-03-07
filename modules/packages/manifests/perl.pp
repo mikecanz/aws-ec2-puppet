@@ -27,6 +27,7 @@ class packages::perl inherits packages {
                 "perl-Date-ICal",
                 "perl-Class-Accessor-Chained",
                 "perl-Starman",
+                "perl-Filesys-Notify-Simple",
                 "perltidy",
               ]:
         ensure => installed,
