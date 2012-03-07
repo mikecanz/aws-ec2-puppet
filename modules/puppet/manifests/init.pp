@@ -24,4 +24,9 @@ class puppet {
                 notify => Service["crond"],
         }
 
+        file { "/usr/local/bin/puppet_run.sh":
+            source => "puppet:///modules/puppet/usr/local/bin/puppet_run.sh",
+            mode => 755,
+        }
+
 }
