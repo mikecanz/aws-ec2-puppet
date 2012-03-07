@@ -48,4 +48,9 @@ class baseline {
         enable => false,
     }
 
+    service { "auditd":
+        ensure => stopped,
+        enable => false,
+    }
+
 }
