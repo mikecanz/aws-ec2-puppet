@@ -21,6 +21,7 @@ class baseline {
                 "aws-apitools-cfn",
                 "telnet",
                 "git",
+                "htop",
               ]:
         ensure => installed,
     }
