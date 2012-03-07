@@ -23,6 +23,9 @@ class packages::perl inherits packages {
                 "perl-Date-Manip",
                 "perl-Time-HiRes",
                 "perl-MooseX-NonMoose",
+                "perl-Data-ICal",
+                "perl-Date-ICal",
+                "perl-Class-Accessor-Chained",
                 "perltidy",
               ]:
         ensure => installed,
