@@ -9,6 +9,10 @@ class nginx {
         enable => true,
     }
 
+    package { "mod_ssl":
+        ensure => installed,
+    }
+
     # An erb that currently has no logic
     file { "/etc/nginx/nginx.conf":
         content => template("nginx/etc/nginx/nginx.conf.erb"),
