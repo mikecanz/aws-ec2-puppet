@@ -25,7 +25,7 @@ class yum {
     }
 
     file { "/etc/yum.repos.d/10gen.repo":
-        source => "puppet:///modules/yum/etc/yum.repos.d/10gen.repo",
+        content => template("yum/etc/yum.repos.d/10gen.repo.erb"),
         owner => "root",
         group => "root",
         mode  => 644,
