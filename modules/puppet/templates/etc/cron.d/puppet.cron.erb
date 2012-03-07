@@ -1,2 +1,2 @@
 # THIS FILE IS MAINTAINED BY PUPPET!
-<%= minute -%> * * * * root /usr/bin/yum clean all 2>&1 > /dev/null; /usr/bin/yum -y upgrade aws-ec2-puppet 2>&1 > /tmp/yum.log; /usr/bin/puppet apply --modulepath /etc/puppet/modules /etc/puppet/manifests/nodes.pp 2>&1 > /tmp/puppet.log
+<%= minute -%> <%= hour -%> * * * root /usr/bin/yum clean all 2>&1 > /dev/null; /usr/bin/yum -y upgrade aws-ec2-puppet 2>&1 > /tmp/yum.log; /usr/bin/puppet apply --modulepath /etc/puppet/modules /etc/puppet/manifests/nodes.pp 2>&1 > /tmp/puppet.log
