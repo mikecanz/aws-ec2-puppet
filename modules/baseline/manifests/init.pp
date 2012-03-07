@@ -43,4 +43,9 @@ class baseline {
         ensure => directory,
     }
 
+    service { "yum-updatesd":
+        ensure => stopped,
+        enable => false,
+    }
+
 }

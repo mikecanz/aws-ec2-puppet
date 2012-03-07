@@ -1,6 +1,7 @@
 class puppet {
 
         $minute = fqdn_rand(60)
+        $hour   = fqdn_rand(5)
 
         File { 
             owner => "root",
