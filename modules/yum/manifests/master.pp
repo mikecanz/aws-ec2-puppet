@@ -7,4 +7,17 @@ class yum::master inherits yum {
         group => "root",
         mode  => 664,
     }
+
+    file { [
+        "/yumvol/amazonami", 
+        "/yumvol/amazonami/2011-09", 
+        "/yumvol/amazonami/2011-09/noarch", 
+        "/yumvol/amazonami/2011-09/i686", 
+        "/yumvol/amazonami/2011-09/x86_64" 
+        ]:
+        ensure => directory,
+        owner  => ec2-user,
+        group  => ec2-user,
+    }
+
 }
