@@ -6,6 +6,7 @@ class yum::master inherits yum {
         owner => "root",
         group => "root",
         mode  => 664,
+        notify => Service["nginx"],
     }
 
     file { [
