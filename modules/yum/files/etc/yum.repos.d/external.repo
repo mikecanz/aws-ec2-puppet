@@ -1,6 +1,6 @@
 # THIS FILE IS MAINTAINED BY PUPPET!
 
-[external-noarch]
+[external-aws-noarch]
 name=Public External Repo (noarch)
 baseurl=http://loop.phpwebhosting.com/~mfc5/yumrepo/amazonami/2011-09/noarch/
 enabled=1
@@ -8,17 +8,9 @@ gpgcheck=0
 priority=1
 metadata_expire=1200
 
-[external-x86_64]
-name=Public External Repo (64 bit)
-baseurl=http://loop.phpwebhosting.com/~mfc5/yumrepo/amazonami/2011-09/x86_64/
-enabled=1
-gpgcheck=0
-priority=1
-metadata_expire=1200
-
-[external-i386]
-name=Public External Repo (32 bit)
-baseurl=http://loop.phpwebhosting.com/~mfc5/yumrepo/amazonami/2011-09/i386/
+[external-aws-arched]
+name=Public External Repo
+baseurl=http://loop.phpwebhosting.com/~mfc5/yumrepo/amazonami/2011-09/$basearch/
 enabled=1
 gpgcheck=0
 priority=1
