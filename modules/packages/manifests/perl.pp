@@ -30,6 +30,7 @@ class packages::perl inherits packages {
                 "perl-Starman",
                 "perl-Filesys-Notify-Simple",
                 "perl-DBI",
+                "perl-DBD-MySQL",
                 "perltidy",
               ]:
         ensure => installed,
