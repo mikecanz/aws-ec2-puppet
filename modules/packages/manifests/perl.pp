@@ -6,6 +6,7 @@ class packages::perl inherits packages {
                 "perl-Dancer",
                 "perl-Dancer-Plugin-REST",
                 "perl-Dancer-Plugin-Passphrase",
+                "perl-Dancer-Plugin-Email",
                 "perl-Data-Structure-Util",
                 "perl-IO-Socket-SSL",
                 "perl-Mongoose",
@@ -28,6 +29,8 @@ class packages::perl inherits packages {
                 "perl-Class-Accessor-Chained",
                 "perl-Starman",
                 "perl-Filesys-Notify-Simple",
+                "perl-DBI",
+                "perl-DBD-MySQL",
                 "perltidy",
               ]:
         ensure => installed,
