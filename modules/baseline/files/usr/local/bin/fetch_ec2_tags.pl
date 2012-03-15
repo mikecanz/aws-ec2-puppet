@@ -20,5 +20,5 @@ my $result = $ec2->describe_tags({'Filter.Name' => 'resource-id', 'Filter.Value'
 
 for my $tags (@$result) {
     my %z = %$tags;
-    print $z{"value"} . ",";
+    print $z{"key"} . ":" . $z{"value"} . ",";
 }
