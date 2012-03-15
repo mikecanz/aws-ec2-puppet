@@ -53,4 +53,8 @@ class baseline {
         enable => false,
     }
 
+    service { "iptables":
+        ensure => stopped,
+        enable => false,
+    }
 }
