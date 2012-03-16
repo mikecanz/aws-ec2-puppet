@@ -53,6 +53,11 @@ class baseline {
         enable => false,
     }
 
+    file { "/usr/local/bin/fetch_ec2_tags.pl":
+        source => "puppet:///modules/baseline/usr/local/bin/fetch_ec2_tags.pl",
+        mode   => 755,
+    }
+
     service { "iptables":
         ensure => stopped,
         enable => false,
