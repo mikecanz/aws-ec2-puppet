@@ -58,4 +58,8 @@ class baseline {
         mode   => 755,
     }
 
+    service { "iptables":
+        ensure => stopped,
+        enable => false,
+    }
 }
