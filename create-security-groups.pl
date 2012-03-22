@@ -55,7 +55,8 @@ create_security_group('v1-yum-master-prod', 'Prod yum server');
 
 create_security_group('v1-build-master-prod', 'Prod build server');
 
-create_security_group('v1-admin', 'Prod yum server');
+create_security_group('v1-admin', 'Admin machine');
+add_default_ingress('v1-admin', 22, '0.0.0.0/0');
 
 sub create_security_group
 {
