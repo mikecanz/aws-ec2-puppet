@@ -31,6 +31,7 @@ class packages::perl inherits packages {
                 "perl-Filesys-Notify-Simple",
                 "perl-DBI",
                 "perl-DBD-MySQL",
+                "perl-Email-Stuff",
                 "perltidy",
               ]:
         ensure => installed,
