@@ -87,4 +87,6 @@ if [ -f /etc/ec2rc ]; then
         . /etc/ec2rc
 fi
 
+export FACTERLIB=/etc/puppet/modules/custom/lib/facter
+
 # vim:ts=4:sw=4

@@ -15,4 +15,9 @@ class build {
     package { ["libssh2", "libssh2-devel"]:
         ensure => installed,
     }
+
+    file { "/yumvol":
+        ensure => directory,
+    }
+
 }

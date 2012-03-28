@@ -21,6 +21,7 @@ class baseline {
                 "aws-apitools-cfn",
                 "telnet",
                 "git",
+                "htop",
               ]:
         ensure => installed,
     }
@@ -42,4 +43,23 @@ class baseline {
         ensure => directory,
     }
 
+    service { "yum-updatesd":
+        ensure => stopped,
+        enable => false,
+    }
+
+    service { "auditd":
+        ensure => stopped,
+        enable => false,
+    }
+
+    file { "/usr/local/bin/fetch_ec2_tags.pl":
+        source => "puppet:///modules/baseline/usr/local/bin/fetch_ec2_tags.pl",
+        mode   => 755,
+    }
+
+    service { "iptables":
+        ensure => stopped,
+        enable => false,
+    }
 }
