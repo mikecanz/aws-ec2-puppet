@@ -32,6 +32,8 @@ class packages::perl inherits packages {
                 "perl-DBI",
                 "perl-DBD-MySQL",
                 "perl-Email-Stuff",
+                "perl-Module-List",
+                "perl-Module-Runtime",
                 "perltidy",
               ]:
         ensure => installed,
