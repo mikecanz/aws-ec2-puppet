@@ -34,6 +34,7 @@ class packages::perl inherits packages {
                 "perl-Email-Stuff",
                 "perl-Module-List",
                 "perl-Module-Runtime",
+                "perl-Module-Util",
                 "perltidy",
               ]:
         ensure => installed,
