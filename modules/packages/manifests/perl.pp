@@ -34,6 +34,9 @@ class packages::perl inherits packages {
                 "perl-Module-List",
                 "perl-Module-Runtime",
                 "perl-Module-Util",
+                "perl-Test-WWW-Mechanize",
+                "perl-Test-WWW-Mechanize-PSGI",
+                "perl-Test-WWW-Mechanize-Dancer",
                 "perltidy",
               ]:
         ensure => installed,
