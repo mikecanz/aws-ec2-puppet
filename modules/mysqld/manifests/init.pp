@@ -1,15 +1,16 @@
 class mysqld {
 
-    include yum
+    include packages
 
     package { [
                 "mysql",
                 "mysql-server",
-                "perl-DBD-MySQL",
                 "php-mysql",
               ]:
         ensure => installed,
     }
+
+    realize Package["perl-DBD-MySQL"]
 
     service { "mysqld":
         enable     => true,

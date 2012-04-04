@@ -30,10 +30,17 @@ class packages::perl inherits packages {
                 "perl-Starman",
                 "perl-Filesys-Notify-Simple",
                 "perl-DBI",
-                "perl-DBD-MySQL",
                 "perl-Email-Stuff",
+                "perl-Module-List",
+                "perl-Module-Runtime",
+                "perl-Module-Util",
+                "perl-Test-WWW-Mechanize",
+                "perl-Test-WWW-Mechanize-PSGI",
+                "perl-Test-WWW-Mechanize-Dancer",
                 "perltidy",
               ]:
         ensure => installed,
     }
+
+    realize Package["perl-DBD-MySQL"]
 }
