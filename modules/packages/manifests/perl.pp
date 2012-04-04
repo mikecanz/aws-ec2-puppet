@@ -38,6 +38,7 @@ class packages::perl inherits packages {
                 "perl-Test-WWW-Mechanize-PSGI",
                 "perl-Test-WWW-Mechanize-Dancer",
                 "perltidy",
+                "perl-LockFile-Simple",
               ]:
         ensure => installed,
     }
