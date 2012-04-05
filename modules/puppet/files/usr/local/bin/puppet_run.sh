@@ -25,8 +25,7 @@ yum clean all 2>&1 > /dev/null
 
 #In your private customer repos, named the nodes file <customer name>-nodes.pp
 
-if [ -n "$custs" ]; then
-    for i in "${custs[@]}"; do
-    /usr/bin/puppet apply --verbose --modulepath /etc/puppet/modules /etc/puppet/manifests/$i-nodes.pp 2>&1 > /tmp/puppet-$i.log
-    done
-fi
+for i in "/etc/puppet/manifests/*-nodes.pp"; do
+    X=`echo $i | cut -f4 -d/ | cut -f1 -d-`
+    /usr/bin/puppet apply --verbose --modulepath /etc/puppet/modules $i 2>&1 > /tmp/puppet-$X.log
+done
