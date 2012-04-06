@@ -35,10 +35,6 @@ class baseline {
         source => "puppet:///modules/baseline/etc/bashrc",
     }
 
-    file { "/etc/profile.d/git-prompt.sh":
-        source => "puppet:///modules/baseline/etc/profile.d/git-prompt.sh",
-    }
-
     file { "/usr/local/bin/gitprompt.pl":
         source => "puppet:///modules/baseline/usr/local/bin/gitprompt.pl",
     }
