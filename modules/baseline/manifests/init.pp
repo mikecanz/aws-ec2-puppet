@@ -37,10 +37,12 @@ class baseline {
 
     file { "/usr/local/bin/gitprompt.pl":
         source => "puppet:///modules/baseline/usr/local/bin/gitprompt.pl",
+        mode   => 755,
     }
 
     file { "/usr/local/bin/s":
         source => "puppet:///modules/baseline/usr/local/bin/s",
+        mode   => 755,
     }
 
     file { "/etc/logrotate.conf":
