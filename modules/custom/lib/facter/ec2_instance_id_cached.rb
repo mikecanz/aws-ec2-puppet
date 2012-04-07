@@ -5,7 +5,7 @@ Facter.add("ec2_instance_id_cached") do
 
     cfile = "/var/lib/puppet/ec2_instance_id"
 
-    if File.exists?(cfile)
+    if File.exists?(cfile) and not File.zero?(cfile)
 
         cache = File.new(cfile, "r")
         cache.each do |c|
