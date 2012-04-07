@@ -5,7 +5,7 @@ require 'time'
 cache = "/var/lib/puppet/ec2_instance_tags"
 
 yesterday = Time.now - (60 * 60 * 24)
-if File.exists?(cache)
+if File.exists?(cache) and not File.zero?(cache)
     modtime = File.mtime(cache)
 else
     modtime = Time.at(0)
