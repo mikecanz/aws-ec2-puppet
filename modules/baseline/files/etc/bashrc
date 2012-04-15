@@ -97,7 +97,7 @@ alias gba="git branch -a"
 
 export SERVER_NAME=`hostname -f`
 
-if [ -e /var/lib/puppet/ec2_instance_tags ]
+if [ -s /var/lib/puppet/ec2_instance_tags ]
 then
     export SERVER_NAME=`cat /var/lib/puppet/ec2_instance_tags | grep Name | sed s/Name://`
 fi
