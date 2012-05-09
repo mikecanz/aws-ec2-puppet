@@ -40,6 +40,7 @@ class packages::perl inherits packages {
                 "perl-Test-WWW-Mechanize-Dancer",
                 "perltidy",
                 "perl-LockFile-Simple",
+                "perl-HTML-HTMLDoc",
               ]:
         ensure => installed,
     }
