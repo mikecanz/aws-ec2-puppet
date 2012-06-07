@@ -38,6 +38,7 @@ class packages::perl inherits packages {
                 "perl-Test-WWW-Mechanize",
                 "perl-Test-WWW-Mechanize-PSGI",
                 "perl-Test-WWW-Mechanize-Dancer",
+                "perl-Time-Duration",
                 "perltidy",
                 "perl-LockFile-Simple",
                 "perl-HTML-HTMLDoc",
