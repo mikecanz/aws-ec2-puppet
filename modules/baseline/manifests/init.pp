@@ -13,6 +13,7 @@ class baseline {
     include puppet
     include monit
     include packages::perl
+    include time
 
     package { [
                 "tree",
