@@ -7,6 +7,7 @@ class packages::php inherits packages {
                 "php-pecl-ssh2",
                 "php-pecl-apc",
                 "php-pecl-gd",
+                "php-mcrypt",
               ]:
         ensure => installed,
     }
