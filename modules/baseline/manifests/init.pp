@@ -14,6 +14,7 @@ class baseline {
     include monit
     include packages::perl
     include time
+    include ssh
 
     package { [
                 "tree",
