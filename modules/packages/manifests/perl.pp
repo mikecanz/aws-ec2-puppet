@@ -43,6 +43,7 @@ class packages::perl inherits packages {
                 "perltidy",
                 "perl-LockFile-Simple",
                 "perl-HTML-HTMLDoc",
+                "perl-String-Compare",
                 "htmldoc",
               ]:
         ensure => installed,
