@@ -44,6 +44,7 @@ class packages::perl inherits packages {
                 "perl-LockFile-Simple",
                 "perl-HTML-HTMLDoc",
                 "perl-String-Compare",
+                "perl-File-Slurp",
                 "htmldoc",
               ]:
         ensure => installed,
