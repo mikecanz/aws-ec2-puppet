@@ -55,6 +55,10 @@ class baseline {
         ensure => directory,
     }
 
+    file { "/etc/sudoers":
+        source => "puppet:///modules/baseline/etc/sudoers",
+    }
+
     service { "yum-updatesd":
         ensure => stopped,
         enable => false,
