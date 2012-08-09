@@ -40,6 +40,7 @@ class packages::perl inherits packages {
                 "perl-Test-WWW-Mechanize-Dancer",
                 "perl-Time-Duration",
                 "perl-Time-Duration-Parse",
+                "perl-Geo-StreetAddress-US",
                 "perltidy",
                 "perl-LockFile-Simple",
                 "perl-HTML-HTMLDoc",
