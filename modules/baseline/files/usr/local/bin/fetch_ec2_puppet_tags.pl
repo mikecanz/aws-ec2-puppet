@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# Print out any user-set tags for the current instance
+# Print out any user-set tags for the current instance that start with puppet_
 
 use strict;
 use warnings;
@@ -19,8 +19,14 @@ chomp(my $instance_id = `facter ec2_instance_id`);
 
 my $result = $ec2->describe_tags({'Filter.Name' => 'resource-id', 'Filter.Value' => $instance_id});
 
-
+my $puppet_tags = "";
 for my $tags (@$result) {
     my %z = %$tags;
-    print $z{"key"} . ":" . $z{"value"} . ";" if $z{"key"} !~ /^puppet/;
+    if ( $z{"key"} =~ /^puppet/ and $z{"value"} eq "1" ) {
+        my $tag = $z{"key"};
+        $tag =~ s/^puppet_//;
+        $puppet_tags = $puppet_tags . $tag . ",";
+    }
 }
+
+print $puppet_tags;
