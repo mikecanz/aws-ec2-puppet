@@ -22,7 +22,11 @@ my $result = $ec2->describe_tags({'Filter.Name' => 'resource-id', 'Filter.Value'
 my $puppet_tags = "";
 for my $tags (@$result) {
     my %z = %$tags;
-    $puppet_tags = $puppet_tags . $z{"key"} . "," if $z{"key"} =~ /^puppet/ and $z{"value"} eq "1" ;
+    if ( $z{"key"} =~ /^puppet/ and $z{"value"} eq "1" ) {
+        my $tag = $z{"key"};
+        $tag =~ s/^puppet_//;
+        $puppet_tags = $puppet_tags . $tag . ",";
+    }
 }
 
 print $puppet_tags;
