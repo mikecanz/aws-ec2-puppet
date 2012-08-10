@@ -57,6 +57,7 @@ class baseline {
 
     file { "/etc/sudoers":
         source => "puppet:///modules/baseline/etc/sudoers",
+        mode   => 440,
     }
 
     service { "yum-updatesd":
