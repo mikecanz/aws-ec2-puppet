@@ -31,7 +31,7 @@ set_allowed_ips(['v1-gearman-worker-nodejs-prod'], 'v1-gearman-master-prod',    
 set_allowed_ips(['v1-gearman-master-prod'],        'v1-gearman-worker-nodejs-prod', 4730);
 
 # This policy is for the nodejs worker sever to talk to MongoDB directly.  It will go away.
-set_allowed_ips(['v1-gearman-worker-nodejs-prod'], 'v1-db-mongo-prod', 27017);
+set_allowed_ips(['admin','v1-gearman-worker-nodejs-prod'], 'v1-db-mongo-prod', 27017);
 
 #######################################
 # This section is for global policies #
@@ -39,9 +39,11 @@ set_allowed_ips(['v1-gearman-worker-nodejs-prod'], 'v1-db-mongo-prod', 27017);
 my @all_groups = get_all_security_groups();
 
 # We want all our servers to be able to talk to the yum server
+# Many to one
 set_allowed_ips(\@all_groups, 'v1-yum-master-prod', 80);
 
 # We want the admin server to be able to talk to all other servers over ssh
+# One to many
 map { set_allowed_ips(['admin'], $_, 22); } @all_groups;
 
 #map { set_allowed_ips(['v1-admin'], $_, 22); } @all_groups;
