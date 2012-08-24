@@ -37,6 +37,10 @@ class baseline {
         source => "puppet:///modules/baseline/etc/bashrc",
     }
 
+    file { "/etc/screenrc":
+        source => "puppet:///modules/baseline/etc/screenrc",
+    }
+
     file { "/usr/local/bin/gitprompt.pl":
         source => "puppet:///modules/baseline/usr/local/bin/gitprompt.pl",
         mode   => 755,
