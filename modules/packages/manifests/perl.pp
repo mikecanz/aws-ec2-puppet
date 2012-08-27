@@ -46,6 +46,7 @@ class packages::perl inherits packages {
                 "perl-HTML-HTMLDoc",
                 "perl-String-Compare",
                 "perl-File-Slurp",
+                "perl-File-Slurp-Unicode",
                 "htmldoc",
               ]:
         ensure => installed,
