@@ -47,6 +47,8 @@ class packages::perl inherits packages {
                 "perl-String-Compare",
                 "perl-File-Slurp",
                 "perl-File-Slurp-Unicode",
+                "perl-Term-ANSIColor",
+                "perl-Data-Printer",
                 "htmldoc",
               ]:
         ensure => installed,
