@@ -49,6 +49,7 @@ class packages::perl inherits packages {
                 "perl-File-Slurp-Unicode",
                 "perl-Data-Printer",
                 "perl-Business-US-USPS-WebTools",
+                "perl-Text-JaroWinkler",
                 "htmldoc",
               ]:
         ensure => installed,
