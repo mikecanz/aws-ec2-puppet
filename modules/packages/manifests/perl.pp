@@ -50,6 +50,7 @@ class packages::perl inherits packages {
                 "perl-Data-Printer",
                 "perl-Business-US-USPS-WebTools",
                 "perl-Text-JaroWinkler",
+                "perl-Getopt-Long-Descriptive",
                 "htmldoc",
               ]:
         ensure => installed,
