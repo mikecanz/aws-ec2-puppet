@@ -51,6 +51,7 @@ class packages::perl inherits packages {
                 "perl-Business-US-USPS-WebTools",
                 "perl-Text-JaroWinkler",
                 "perl-Getopt-Long-Descriptive",
+                "perl-XML-Twig",
                 "htmldoc",
               ]:
         ensure => installed,
