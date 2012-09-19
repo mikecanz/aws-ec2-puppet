@@ -52,6 +52,7 @@ class packages::perl inherits packages {
                 "perl-Text-JaroWinkler",
                 "perl-Getopt-Long-Descriptive",
                 "perl-XML-Twig",
+                "perl-Text-CSV",
                 "htmldoc",
               ]:
         ensure => installed,
