@@ -53,6 +53,8 @@ class packages::perl inherits packages {
                 "perl-Getopt-Long-Descriptive",
                 "perl-XML-Twig",
                 "perl-Text-CSV",
+                "perl-Lingua-EN-NameParse",
+                "perl-Lingua-EN-AddressParse",
                 "htmldoc",
               ]:
         ensure => installed,
