@@ -6,6 +6,7 @@ class mysqld {
                 "mysql",
                 "mysql-server",
                 "php-mysql",
+                "liquibase",
               ]:
         ensure => installed,
     }
