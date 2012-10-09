@@ -24,4 +24,12 @@ class nginx {
     file { "/etc/nginx/conf.d/default.conf":
         ensure => absent,
     }
+
+    file { "/etc/nginx/php.conf":
+        source => "puppet:///modules/nginx/etc/nginx/php.conf",
+    }
+
+    file { "/etc/nginx/drop.conf":
+        source => "puppet:///modules/nginx/etc/nginx/drop.conf",
+    }
 }
