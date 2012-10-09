@@ -18,13 +18,14 @@ node default {
         include mongod
     }
 
-    if $ec2_security_groups =~ /webserver-nginx/ {
-        include nginx
-    }
-
     if $ec2_security_groups =~ /webserver-nginx-php/ {
         include packages::php
         include php-fpm
+        include nginx
+    }
+
+    if $ec2_security_groups =~ /webserver-nginx/ {
+        include nginx
     }
 
     if $ec2_security_groups =~ /webserver-httpd/ {
