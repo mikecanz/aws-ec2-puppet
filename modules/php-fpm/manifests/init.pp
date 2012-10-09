@@ -19,7 +19,7 @@ class php-fpm {
         }
 
         file { "/etc/php-fpm.conf":
-            source => "puppet:///modules/php/etc/php-fpm.conf",
+            source => "puppet:///modules/php-fpm/etc/php-fpm.conf",
         }
 
 }
