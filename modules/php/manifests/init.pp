@@ -10,8 +10,4 @@ class php {
         file { "/etc/php.ini":
             source => "puppet:///modules/php/etc/php.ini",
         }
-
-        file { "/etc/php-fpm.conf":
-            source => "puppet:///modules/php/etc/php-fpm.conf",
-        }
 }
