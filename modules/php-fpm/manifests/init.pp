@@ -15,7 +15,7 @@ class php-fpm {
             enable     => true,
             ensure     => running,
             hasrestart => true,
-            subscribe  => Package["php", "packages::php"],
+            subscribe  => Package["php"],
         }
 
         file { "/etc/php-fpm.conf":
