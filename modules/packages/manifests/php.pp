@@ -1,6 +1,6 @@
 class packages::php inherits packages {
 
-    include php
+    include ::php
 
     package { [
                 "php-pecl-ssh2",
