@@ -20,6 +20,7 @@ node default {
 
     if $ec2_security_groups =~ /webserver-nginx/ {
         include nginx
+        include packages::php
     }
 
     if $ec2_security_groups =~ /webserver-httpd/ {
