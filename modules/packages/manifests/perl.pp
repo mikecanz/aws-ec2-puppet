@@ -55,6 +55,7 @@ class packages::perl inherits packages {
                 "perl-Text-CSV",
                 "perl-Lingua-EN-NameParse",
                 "perl-Lingua-EN-AddressParse",
+                "perl-List-Compare",
                 "htmldoc",
               ]:
         ensure => installed,
