@@ -4,10 +4,10 @@ class php-fpm {
             owner   => "root", 
             group   => "root", 
             mode    => 644,
-            require => Package["php-fpm"], # httpd package creates the apache user
+            require => Package["php54-fpm"],
         }
 
-        package { ["php-fpm"]:
+        package { ["php54-fpm"]:
             ensure => installed,
         }
 
@@ -15,7 +15,7 @@ class php-fpm {
             enable     => true,
             ensure     => running,
             hasrestart => true,
-            subscribe  => Package["php"],
+            subscribe  => Package["php54-fpm"],
         }
 
         file { "/etc/php-fpm.conf":
