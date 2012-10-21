@@ -22,6 +22,7 @@ class packages::perl inherits packages {
                 "perl-Module-Starter",
                 "perl-DateTime-Format-Strptime",
                 "perl-Date-Manip",
+                "perl-Date-Calc",
                 "perl-Time-HiRes",
                 "perl-MooseX-NonMoose",
                 "perl-Data-ICal",
