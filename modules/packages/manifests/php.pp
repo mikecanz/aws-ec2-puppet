@@ -6,6 +6,7 @@ class packages::php inherits packages {
                 "php-pecl-ssh2",
                 "php-xml",
                 "php-pecl-apc",
+                "php-gd",
                 "php-pecl-gd",
                 "php-mcrypt",
               ]:
