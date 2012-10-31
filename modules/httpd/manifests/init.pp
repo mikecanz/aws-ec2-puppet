@@ -6,10 +6,10 @@ class httpd {
             owner   => "apache", 
             group   => "apache", 
             mode    => 644,
-            require => Package["httpd"], # httpd package creates the apache user
+            require => Package["httpd24"], # httpd package creates the apache user
         }
 
-        package { ["httpd", "mod_ssl"]:
+        package { ["httpd24", "mod24_ssl"]:
             ensure => installed,
         }
 
@@ -17,7 +17,7 @@ class httpd {
             enable     => true,
             ensure     => running,
             hasrestart => true,
-            subscribe  => Package["httpd", "mod_ssl"],
+            subscribe  => Package["httpd24", "mod24_ssl"],
         }
 
         file { ["/usr/local/apache", "/usr/local/apache/htdocs"]:

@@ -4,7 +4,7 @@ class php {
             owner   => "root", 
             group   => "root", 
             mode    => 644,
-            require => Package["php"], # php package creates the initial php.ini
+            require => Package["php54"], # php package creates the initial php.ini
         }
 
         file { "/etc/php.ini":
