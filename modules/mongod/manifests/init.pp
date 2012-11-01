@@ -5,7 +5,7 @@ class mongod {
     package { [
                 "mongo-10gen",
                 "mongo-10gen-server",
-                "php-pecl-mongo",
+                "php54-pecl-mongo",
                 "perl-MongoDB",
               ]:
         ensure => installed,

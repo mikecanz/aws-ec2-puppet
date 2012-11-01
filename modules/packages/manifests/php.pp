@@ -3,12 +3,11 @@ class packages::php inherits packages {
     include ::php
 
     package { [
-                "php-pecl-ssh2",
-                "php-xml",
-                "php-pecl-apc",
-                "php-gd",
-                "php-pecl-gd",
-                "php-mcrypt",
+                "php54-pecl-ssh2",
+                "php54-xml",
+                "php54-pecl-apc",
+                "php54-gd",
+                "php54-mcrypt",
               ]:
         ensure => installed,
     }

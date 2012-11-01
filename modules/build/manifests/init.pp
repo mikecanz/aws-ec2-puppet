@@ -1,9 +1,8 @@
 class build {
 
     package { [
-                "php", 
-                "php-devel", 
-                "php-pear", 
+                "php54",
+                "php54-devel",
                 "ruby-devel", 
                 "gcc", 
                 "rpm-build",

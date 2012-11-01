@@ -5,10 +5,11 @@ class mysqld {
     package { [
                 "mysql",
                 "mysql-server",
-                "php-mysql",
+                "php54-mysql",
                 "liquibase",
               ]:
         ensure => installed,
+        require => Package["php"],
     }
 
     realize Package["perl-DBD-MySQL"]

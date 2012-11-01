@@ -9,6 +9,7 @@ class php-fpm {
 
         package { ["php54-fpm"]:
             ensure => installed,
+            require => Package["php"],
         }
 
         service { "php-fpm":

@@ -9,6 +9,10 @@ class httpd {
             require => Package["httpd24"], # httpd package creates the apache user
         }
 
+        package { ["httpd", "mod_ssl"]:
+            ensure => absent,
+        }
+
         package { ["httpd24", "mod24_ssl"]:
             ensure => installed,
         }
