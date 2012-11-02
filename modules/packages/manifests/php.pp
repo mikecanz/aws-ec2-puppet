@@ -16,4 +16,8 @@ class packages::php inherits packages {
     package { "php54":
         ensure => "5.4.7",
     }
+
+    package { "php-pear":
+        ensure => "installed",
+    }
 }
