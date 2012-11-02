@@ -10,7 +10,7 @@ class packages::php inherits packages {
                 "php54-mcrypt",
               ]:
         ensure => installed,
-        require => Package["php-common"],
+        require => Package["php-common", "php-pear"],
     }
 
     package { "php54":
