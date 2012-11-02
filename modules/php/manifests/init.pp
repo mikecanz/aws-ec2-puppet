@@ -20,7 +20,6 @@ class php {
             "php-cli",
             "php-pdo",
             "php-mysql",
-            "php-pear",
             "perl-Test-WWW-Mechanize-Dancer",
             "mod_ssl",
             "perl-Test-WWW-Mechanize-PSGI",
