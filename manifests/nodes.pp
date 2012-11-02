@@ -24,6 +24,11 @@ node default {
         include nginx
     }
 
+    if $ec2_security_groups =~ /webserver-nginx-perl/ {
+        include packages::perl-web
+        include nginx
+    }
+
     if $ec2_security_groups =~ /webserver-nginx/ {
         include nginx
     }
