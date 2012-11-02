@@ -14,6 +14,6 @@ class packages::php inherits packages {
     }
 
     package { "php54":
-        ensure => "php54-5.4.7",
+        ensure => "5.4.7",
     }
 }
