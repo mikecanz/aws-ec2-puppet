@@ -18,4 +18,8 @@ class mysqld {
         ensure     => running,
         subscribe  => Package["mysql"],
     }
+
+    file { "/etc/my.cnf":
+        source => "puppet:///modules/mysqld/etc/my.cnf",
+    }
 }
