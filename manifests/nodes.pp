@@ -33,6 +33,11 @@ node default {
         include packages::php
     }
 
+    if $ec2_security_groups =~ /webserver-httpd24-php54/ {
+        include httpd24
+        include php54
+    }
+
     if $ec2_security_groups =~ /gearman-worker-nodejs/ {
         include gearman
         include nodejs
