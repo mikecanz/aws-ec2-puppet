@@ -16,4 +16,9 @@ class mongod {
         ensure     => running,
         subscribe  => Package["mongo-10gen-server"],
     }
+
+    file { "/etc/logrotate.d/mongodb":
+        source  => "puppet:///modules/mongod/etc/logrotate.d/mongodb",
+        mode    => "644",
+    }
 }
