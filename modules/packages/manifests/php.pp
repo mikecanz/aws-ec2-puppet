@@ -9,6 +9,7 @@ class packages::php inherits packages {
                 "php-gd",
                 "php-pecl-gd",
                 "php-mcrypt",
+                "suphp",
               ]:
         ensure => installed,
     }
