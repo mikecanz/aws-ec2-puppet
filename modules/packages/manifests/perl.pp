@@ -53,6 +53,7 @@ class packages::perl inherits packages {
                 "perl-Text-JaroWinkler",
                 "perl-Getopt-Long-Descriptive",
                 "perl-XML-Twig",
+                "perl-XML-RPC",
                 "perl-Text-CSV",
                 "perl-Lingua-EN-NameParse",
                 "perl-Lingua-EN-AddressParse",
