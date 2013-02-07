@@ -6,4 +6,8 @@ class packages {
     @package { "perl-DBD-MySQL":
         ensure => installed,
     }
+
+    package { "pdfjam":
+        ensure => installed,
+    }
 }
