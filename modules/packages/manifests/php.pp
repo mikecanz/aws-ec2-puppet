@@ -7,6 +7,7 @@ class packages::php inherits packages {
                 "php-xml",
                 "php-pecl-apc",
                 "php-gd",
+                "php-intl",
                 "php-pecl-gd",
                 "php-mcrypt",
                 "suphp",
