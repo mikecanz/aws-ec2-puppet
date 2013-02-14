@@ -15,6 +15,6 @@ class packages::php inherits packages {
     }
 
     package { "php":
-        ensure => "5.3.20",
+        ensure => "5.3.20-1.29.amzn1",
     }
 }
