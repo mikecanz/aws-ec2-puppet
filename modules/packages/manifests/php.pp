@@ -17,4 +17,14 @@ class packages::php inherits packages {
     package { "php":
         ensure => "5.3.20-1.29.amzn1",
     }
+
+    if $virtual == "virtualbox" {
+
+        package { "php-phpunit-PHPUnit":
+            ensure => installed,
+            require => Package["php"],
+        }
+
+    }
+
 }
