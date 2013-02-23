@@ -20,12 +20,17 @@ class baseline {
                 "tree",
                 "screen",
                 "fail2ban",
-                "aws-apitools-cfn",
                 "telnet",
                 "git",
                 "htop",
               ]:
         ensure => installed,
+    }
+
+    if $ec2_ami_id {
+        package { "aws-apitools-cfn":
+            ensure => installed,
+        }
     }
 
     service { "crond":
