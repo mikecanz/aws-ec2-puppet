@@ -15,11 +15,16 @@ class php-fpm {
             enable     => true,
             ensure     => running,
             hasrestart => true,
-            subscribe  => Package["php"],
+            subscribe  => [Package["php"],File["/etc/init.d/php-fpm"]],
         }
 
         file { "/etc/php-fpm.conf":
             source => "puppet:///modules/php-fpm/etc/php-fpm.conf",
+        }
+
+        file { "/etc/init.d/php-fpm":
+            source => "puppet:///modules/php-fpm/etc/init.d/php-fpm",
+            mode   => 755,
         }
 
 }
