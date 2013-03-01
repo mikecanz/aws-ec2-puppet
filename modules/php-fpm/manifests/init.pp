@@ -22,4 +22,9 @@ class php-fpm {
             source => "puppet:///modules/php-fpm/etc/php-fpm.conf",
         }
 
+        file { "/etc/init.d/php-fpm":
+            source => "puppet:///modules/php-fpm/etc/init.d/php-fpm",
+            mode   => 755,
+        }
+
 }
