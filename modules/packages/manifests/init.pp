@@ -7,7 +7,7 @@ class packages {
         ensure => installed,
     }
 
-    package { "pdfjam":
+    package { ["pdfjam", "poppler-utils"]:
         ensure => installed,
     }
 }
