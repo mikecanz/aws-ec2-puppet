@@ -18,6 +18,10 @@ class packages::php inherits packages {
         ensure => "5.3.20-1.29.amzn1",
     }
 
+    package { "pcre":
+        ensure => "pcre-8.21-5.3.amzn1",
+    }
+
     if $virtual == "virtualbox" {
 
         package { "php-phpunit-PHPUnit":
