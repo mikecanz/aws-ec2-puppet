@@ -815,7 +815,11 @@ user_dir =
 ; Directory in which the loadable extensions (modules) reside.
 ; http://www.php.net/manual/en/ini.core.php#ini.extension-dir
 ; extension_dir = "./"
+<% if architecture == "x86_64" -%>
 extension_dir = "/usr/lib64/php/modules"
+<% else -%>
+extension_dir = "/usr/lib/php/modules"
+<%- end -%>
 
 ; Whether or not to enable the dl() function.  The dl() function does NOT work
 ; properly in multithreaded servers, such as IIS or Zeus, and is automatically
