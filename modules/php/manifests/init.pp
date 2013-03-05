@@ -8,6 +8,6 @@ class php {
         }
 
         file { "/etc/php.ini":
-            source => "puppet:///modules/php/etc/php.ini",
+            content => template("php/etc/php.ini.erb"),
         }
 }
