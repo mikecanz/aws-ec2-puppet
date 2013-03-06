@@ -19,7 +19,7 @@ class packages::php inherits packages {
     }
 
     package { "pcre":
-        ensure => "pcre-8.21-5.3.amzn1",
+        ensure => "8.21-5.3.amzn1",
     }
 
     if $virtual == "virtualbox" {
