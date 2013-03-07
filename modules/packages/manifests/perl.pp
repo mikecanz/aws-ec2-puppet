@@ -58,6 +58,7 @@ class packages::perl inherits packages {
                 "perl-Text-CSV",
                 "perl-Lingua-EN-NameParse",
                 "perl-Lingua-EN-AddressParse",
+                "perl-Dancer-Plugin-FlashMessage",
                 "perl-List-Compare",
                 "perl-Lingua-EN-Words2Nums",
                 "htmldoc",
