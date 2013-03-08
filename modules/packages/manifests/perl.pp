@@ -3,7 +3,6 @@ class packages::perl inherits packages {
     package { [
                 "perl-Class-Accessor",
                 "perl-Crypt-Rijndael",
-                "perl-Dancer",
                 "perl-Dancer-Plugin-Auth-RBAC",
                 "perl-Dancer-Plugin-Auth-RBAC-Credentials-DBIC",
                 "perl-Dancer-Plugin-Auth-RBAC-Permissions-DBIC",
@@ -74,6 +73,10 @@ class packages::perl inherits packages {
                 "perl-Term-ANSIColor",
               ]:
         ensure => latest,
+    }
+
+    package { "perl-Dancer":
+        ensure => "1.3110-1",
     }
 
     realize Package["perl-DBD-MySQL"]
