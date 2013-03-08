@@ -7,6 +7,7 @@ class packages::perl inherits packages {
                 "perl-Dancer-Plugin-REST",
                 "perl-Dancer-Plugin-Passphrase",
                 "perl-Dancer-Plugin-Email",
+                "perl-Dancer-Session-DBI",
                 "perl-Data-Structure-Util",
                 "perl-IO-Socket-SSL",
                 "perl-Mongoose",
