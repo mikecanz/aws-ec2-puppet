@@ -8,6 +8,7 @@ class packages::php inherits packages {
                 "php-pecl-apc",
                 "php-gd",
                 "php-intl",
+                "php-mysql",
                 "php-mcrypt",
                 "suphp",
               ]:
