@@ -23,7 +23,7 @@ class packages::php inherits packages {
         ensure => "8.21-5.3.amzn1",
     }
 
-    if $virtual == "virtualbox" {
+    if $is_dev == "true" {
 
         package { "php-phpunit-PHPUnit":
             ensure => installed,
