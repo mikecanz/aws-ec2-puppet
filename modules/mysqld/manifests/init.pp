@@ -22,9 +22,10 @@ class mysqld {
         content => template("mysqld/etc/my.cnf.erb")
     }
 
-    if $ID == "vagrant" {
+    if $id == "vagrant" {
 
         file { "/var/log/mysql/query.log":
+            ensure => 'present',
             owner => mysql,
             group => mysql
         }
