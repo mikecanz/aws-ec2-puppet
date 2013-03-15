@@ -5,7 +5,7 @@ user=mysql
 # Disabling symbolic-links is recommended to prevent assorted security risks
 symbolic-links=0
 max_allowed_packet=16M
-<% if "$ID" == "vagrant" %>
+<% if $is_dev == "true" %>
 log=/var/log/mysql/query.log
 <% end %>
 
