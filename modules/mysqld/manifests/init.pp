@@ -24,10 +24,21 @@ class mysqld {
 
     if $is_dev == "true" {
 
+        file { "/var/log/mysql" :
+            ensure => "directory",
+            owner => "mysql",
+            group => "mysql",
+            mode => 644,
+        }
+
         file { "/var/log/mysql/query.log":
+            notify => Service['mysqld'], 
             ensure => 'present',
-            owner => mysql,
-            group => mysql
+            owner => 'mysql',
+            group => 'mysql',
+            mode => 0644,
+            content => '',
+            require => Package['mysql-server']
         }
     }
 }
