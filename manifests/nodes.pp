@@ -66,4 +66,9 @@ node default {
     if $ec2_security_groups =~ /admin/ {
         include build
     } 
+    
+    if $ec2_security_groups =~ /ganglia/ {
+        include ganglia::gmetad
+        include ganglia::web
+    }
 }
