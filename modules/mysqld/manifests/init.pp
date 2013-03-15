@@ -19,6 +19,14 @@ class mysqld {
     }
 
     file { "/etc/my.cnf":
-        source => "puppet:///modules/mysqld/etc/my.cnf",
+        content => template("mysqld/etc/my.cnf.erb")
+    }
+
+    if $ID == "vagrant" {
+
+        file { "/var/log/mysql/query.log":
+            owner => mysql,
+            group => mysql
+        }
     }
 }
