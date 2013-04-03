@@ -59,6 +59,7 @@ class packages::perl inherits packages {
                 "perl-XML-Twig",
                 "perl-XML-RPC",
                 "perl-Text-CSV",
+                "perl-Test-Deep",
                 "perl-Lingua-EN-NameParse",
                 "perl-Lingua-EN-AddressParse",
                 "perl-Dancer-Plugin-FlashMessage",
