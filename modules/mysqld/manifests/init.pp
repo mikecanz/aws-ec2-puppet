@@ -5,6 +5,7 @@ class mysqld {
     package { [
                 "mysql",
                 "mysql-server",
+                "php-mysql",
                 "liquibase",
               ]:
         ensure => installed,

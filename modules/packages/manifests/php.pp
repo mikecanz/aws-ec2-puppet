@@ -8,7 +8,6 @@ class packages::php inherits packages {
                 "php-pecl-apc",
                 "php-gd",
                 "php-intl",
-                "php-mysql",
                 "php-mcrypt",
                 "suphp",
               ]:
@@ -23,7 +22,7 @@ class packages::php inherits packages {
         ensure => "8.21-5.3.amzn1",
     }
 
-    if $is_dev == "true" {
+    if $virtual == "virtualbox" {
 
         package { "php-phpunit-PHPUnit":
             ensure => installed,
