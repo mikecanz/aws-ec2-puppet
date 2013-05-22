@@ -33,6 +33,7 @@ class packages::perl inherits packages {
                 "perl-Filesys-Notify-Simple",
                 "perl-DBI",
                 "perl-Email-Stuff",
+                "perl-Email-Valid",
                 "perl-Module-List",
                 "perl-Module-Runtime",
                 "perl-Module-Util",
