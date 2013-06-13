@@ -35,6 +35,8 @@ class packages::perl inherits packages {
                 "perl-Starman",
                 "perl-Filesys-Notify-Simple",
                 "perl-DBI",
+                "perl-DBIx-Class",
+                "perl-DBIx-Class-Schema-Loader",
                 "perl-Email-Stuff",
                 "perl-Email-Valid",
                 "perl-Module-List",
