@@ -68,6 +68,7 @@ class packages::perl inherits packages {
                 "perl-Dancer-Plugin-FlashMessage",
                 "perl-List-Compare",
                 "perl-Lingua-EN-Words2Nums",
+                "perl-WWW-LinkedIn",
                 "htmldoc",
               ]:
         ensure => installed,
