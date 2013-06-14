@@ -64,6 +64,7 @@ class packages::perl inherits packages {
                 "perl-Lingua-EN-AddressParse",
                 "perl-List-Compare",
                 "perl-Lingua-EN-Words2Nums",
+                "perl-WWW-LinkedIn",
                 "htmldoc",
               ]:
         ensure => installed,
