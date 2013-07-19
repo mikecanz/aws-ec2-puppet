@@ -65,6 +65,7 @@ class packages::perl inherits packages {
                 "perl-List-Compare",
                 "perl-Lingua-EN-Words2Nums",
                 "perl-WWW-LinkedIn",
+                "perl-Data-Section",
                 "htmldoc",
               ]:
         ensure => installed,
