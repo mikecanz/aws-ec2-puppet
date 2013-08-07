@@ -70,6 +70,9 @@ class packages::perl inherits packages {
                 "perl-Lingua-EN-Words2Nums",
                 "perl-WWW-LinkedIn",
                 "perl-Data-Section",
+                "perl-Proc-Daemon",
+                "perl-Proc-PID-File",
+                "perl-Log-Dispatch",
                 "htmldoc",
               ]:
         ensure => installed,
