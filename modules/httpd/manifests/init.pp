@@ -47,7 +47,7 @@ class httpd {
         }
 
         file { "/etc/ganglia/conf.d/apache_status.pyconf":
-            source => "puppet:///modules/etc/ganglia/conf.d/apache_status.pyconf",
+            source => "puppet:///modules/httpd/etc/ganglia/conf.d/apache_status.pyconf",
         }
 
         file { "/etc/httpd/conf.d/ssl.conf":
