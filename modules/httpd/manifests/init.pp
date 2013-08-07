@@ -1,6 +1,7 @@
 class httpd {
 
         include yum
+        include ganglia
 
         File { 
             owner   => "apache", 
