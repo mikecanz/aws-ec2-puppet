@@ -23,7 +23,7 @@ class baseline {
                 "telnet",
                 "git",
                 "htop",
-                "vim",
+                "vim-enhanced",
               ]:
         ensure => installed,
     }
