@@ -1,4 +1,4 @@
-class ganglia::gmetad {
+class ganglia::gmetad inherits ganglia {
 
     package { [
                 "ganglia",

@@ -1,4 +1,4 @@
-class ganglia::web {
+class ganglia::web inherits ganglia {
 
     include ganglia::gmetad
 
