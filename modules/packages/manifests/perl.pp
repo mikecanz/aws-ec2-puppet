@@ -73,6 +73,7 @@ class packages::perl inherits packages {
                 "perl-Proc-Daemon",
                 "perl-Proc-PID-File",
                 "perl-Log-Dispatch",
+                "perl-REST-Client",
                 "htmldoc",
               ]:
         ensure => installed,
