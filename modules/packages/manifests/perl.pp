@@ -75,6 +75,8 @@ class packages::perl inherits packages {
                 "perl-Log-Dispatch",
                 "perl-REST-Client",
                 "htmldoc",
+                "perl-Device-SerialPort",
+                "perl-DBD-SQLite",
               ]:
         ensure => installed,
     }
