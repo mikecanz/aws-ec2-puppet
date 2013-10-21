@@ -25,6 +25,7 @@ class packages::perl inherits packages {
                 "perl-Module-Starter",
                 "perl-DateTime-Format-Strptime",
                 "perl-DateTime-Format-ISO8601",
+                "perl-DateTime-Format-MySQL",
                 "perl-Date-Manip",
                 "perl-Date-Calc",
                 "perl-Time-HiRes",
