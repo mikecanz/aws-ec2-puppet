@@ -78,6 +78,7 @@ class packages::perl inherits packages {
                 "htmldoc",
                 "perl-Device-SerialPort",
                 "perl-DBD-SQLite",
+                "perl-CHI",
               ]:
         ensure => installed,
     }
