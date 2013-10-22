@@ -79,6 +79,7 @@ class packages::perl inherits packages {
                 "perl-Device-SerialPort",
                 "perl-DBD-SQLite",
                 "perl-CHI",
+                "perl-String-Random",
               ]:
         ensure => installed,
     }
