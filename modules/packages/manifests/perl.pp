@@ -74,6 +74,7 @@ class packages::perl inherits packages {
                 "perl-Proc-PID-File",
                 "perl-Log-Dispatch",
                 "perl-REST-Client",
+                "perl-Postal-US-State",
                 "htmldoc",
               ]:
         ensure => installed,
