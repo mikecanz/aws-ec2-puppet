@@ -24,6 +24,8 @@ class baseline {
                 "git",
                 "htop",
                 "vim-enhanced",
+                "cyrus-sasl",
+                "cyrus-sasl-plain",
               ]:
         ensure => installed,
     }
