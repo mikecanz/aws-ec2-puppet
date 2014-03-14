@@ -80,7 +80,11 @@ class packages::perl inherits packages {
                 "perl-Device-SerialPort",
                 "perl-DBD-SQLite",
                 "perl-CHI",
+                "perl-JSON-WebToken",
+                "perl-Log-Log4perl",
+                "perl-Template-Mustache",
                 "perl-String-Random",
+                "perl-RDF-RDFa-Parser",
               ]:
         ensure => installed,
     }
