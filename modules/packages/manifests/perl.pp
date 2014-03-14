@@ -85,6 +85,9 @@ class packages::perl inherits packages {
                 "perl-Template-Mustache",
                 "perl-String-Random",
                 "perl-RDF-RDFa-Parser",
+                "perl-XML-Feed",
+                "perl-Class-ErrorHandler",
+                "perl-XML-RSS",
               ]:
         ensure => installed,
     }
