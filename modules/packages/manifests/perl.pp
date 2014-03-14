@@ -25,6 +25,7 @@ class packages::perl inherits packages {
                 "perl-Module-Starter",
                 "perl-DateTime-Format-Strptime",
                 "perl-DateTime-Format-ISO8601",
+                "perl-DateTime-Format-MySQL",
                 "perl-Date-Manip",
                 "perl-Date-Calc",
                 "perl-Time-HiRes",
@@ -76,6 +77,10 @@ class packages::perl inherits packages {
                 "perl-REST-Client",
                 "perl-Postal-US-State",
                 "htmldoc",
+                "perl-Device-SerialPort",
+                "perl-DBD-SQLite",
+                "perl-CHI",
+                "perl-String-Random",
               ]:
         ensure => installed,
     }
