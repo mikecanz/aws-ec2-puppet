@@ -88,6 +88,8 @@ class packages::perl inherits packages {
                 "perl-XML-Feed",
                 "perl-Class-ErrorHandler",
                 "perl-XML-RSS",
+                "perl-HTML-Restrict",
+                "pert-Dancer-Plugin-EscapeHTML",
               ]:
         ensure => installed,
     }
