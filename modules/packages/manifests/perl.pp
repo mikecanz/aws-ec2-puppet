@@ -89,7 +89,7 @@ class packages::perl inherits packages {
                 "perl-Class-ErrorHandler",
                 "perl-XML-RSS",
                 "perl-HTML-Scrubber",
-                "pert-Dancer-Plugin-EscapeHTML",
+                "perl-Dancer-Plugin-EscapeHTML",
               ]:
         ensure => installed,
     }
