@@ -3,13 +3,10 @@ class packages::perl inherits packages {
     package { [
                 "perl-Class-Accessor",
                 "perl-Crypt-Rijndael",
-                "perl-Dancer-Plugin-Auth-RBAC",
-                "perl-Dancer-Plugin-Auth-RBAC-Credentials-DBIC",
-                "perl-Dancer-Plugin-Auth-RBAC-Permissions-DBIC",
+                "perl-Dancer",
                 "perl-Dancer-Plugin-REST",
                 "perl-Dancer-Plugin-Passphrase",
                 "perl-Dancer-Plugin-Email",
-                "perl-Dancer-Session-DBI",
                 "perl-Data-Structure-Util",
                 "perl-IO-Socket-SSL",
                 "perl-Mongoose",
@@ -66,7 +63,6 @@ class packages::perl inherits packages {
                 "perl-Test-Deep",
                 "perl-Lingua-EN-NameParse",
                 "perl-Lingua-EN-AddressParse",
-                "perl-Dancer-Plugin-FlashMessage",
                 "perl-List-Compare",
                 "perl-Lingua-EN-Words2Nums",
                 "perl-WWW-LinkedIn",
@@ -98,10 +94,6 @@ class packages::perl inherits packages {
                 "perl-Term-ANSIColor",
               ]:
         ensure => latest,
-    }
-
-    package { "perl-Dancer":
-        ensure => "1.3110-1",
     }
 
     realize Package["perl-DBD-MySQL"]
