@@ -109,4 +109,13 @@ export PS1=$(gitprompt.pl statuscount=1 u=%[%e[31m%] c=%[%e[32m%] f=%[%e[1\;37m%
 
 export FACTERLIB=/etc/puppet/modules/custom/lib/facter
 
+MANPATH=/home/ec2-user/perl5/perlbrew/perls/perl-5.16.3/man:
+PERLBREW_VERSION=0.69
+PERLBREW_PERL=perl-5.16.3
+PERLBREW_ROOT=/home/ec2-user/perl5/perlbrew
+PATH=/home/ec2-user/perl5/perlbrew/bin:/home/ec2-user/perl5/perlbrew/perls/perl-5.16.3/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/aws/bin:/home/ec2-user/env:/home/ec2-user/bin
+PERLBREW_MANPATH=/home/ec2-user/perl5/perlbrew/perls/perl-5.16.3/man
+PERLBREW_SKIP_INIT=1
+PERLBREW_PATH=/home/ec2-user/perl5/perlbrew/bin:/home/ec2-user/perl5/perlbrew/perls/perl-5.16.3/bin
+
 # vim:ts=4:sw=4
