@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/bin/env perl
 # Print out any user-set tags for the current instance that start with puppet_
 
 use strict;
