@@ -11,6 +11,4 @@ class packages::perl inherits packages {
               ]:
         ensure => latest,
     }
-
-    realize Package["perl-DBD-MySQL"]
 }
